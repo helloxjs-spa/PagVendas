@@ -17,23 +17,23 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#151E3A",
+          background: "#081B34",
           color: "#fff",
           padding: "64px 72px",
           fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ fontSize: 22, letterSpacing: 4, color: "#A7B8EE" }}>
+          <div style={{ fontSize: 22, letterSpacing: 4, color: "#F5C451" }}>
             CURSO DE ATENDIMENTO PRÉ-HOSPITALAR
           </div>
-          <div style={{ display: "flex", background: "#FF5A1F", color: "#151E3A", padding: "10px 18px", fontSize: 30, fontWeight: 800 }}>
+          <div style={{ display: "flex", background: "#F5C451", color: "#081B34", padding: "10px 18px", fontSize: 30, fontWeight: 800 }}>
             APH 2027
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 84, fontWeight: 800, lineHeight: 1.02, letterSpacing: -2 }}>
           <span>Na hora da emergência,</span>
-          <span style={{ color: "#FF5A1F" }}>você age ou trava?</span>
+          <span style={{ color: "#F5C451" }}>você age ou trava?</span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26, color: "rgba(255,255,255,.75)", borderTop: "1px solid rgba(255,255,255,.2)", paddingTop: 24 }}>
           <span>Grupo EDASI · São Bernardo do Campo · SP</span>

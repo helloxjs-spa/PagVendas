@@ -11,13 +11,11 @@ export function Voices() {
   if (!hasReal && !site.reviewMode) return null;
 
   return (
-    <section aria-labelledby="depoimentos-title" className="bg-mist py-20 sm:py-24">
+    <section aria-labelledby="depoimentos-title" className="border-t border-line bg-white py-20 sm:py-24">
       <div className="wrap">
         <SectionHead
           id="depoimentos-title"
-          eyebrow={testimonials.eyebrow}
           title={testimonials.title}
-          lead={!hasReal ? testimonials.reviewNote : undefined}
         />
 
         <ul className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">
@@ -55,13 +53,12 @@ export function Voices() {
                 </li>
               ))
             : testimonialSlots.map((s) => (
-                <li key={s.code} className="flex items-center gap-4 rounded-[22px] border-2 border-dashed border-blue/25 bg-white p-6">
+                <li key={s.code} className="card flex items-center gap-4 p-6">
                   <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-blue/10 text-blue">
                     <Quote aria-hidden className="size-6" />
                   </span>
                   <span>
-                    <span className="block text-[0.72rem] font-bold tracking-[0.05em] text-blue uppercase">{s.code} · pendente</span>
-                    <span className="mt-1 block font-semibold text-ink/75">{s.note}</span>
+                    <span className="block text-[1.05rem] font-semibold text-ink">{s.note}</span>
                   </span>
                 </li>
               ))}

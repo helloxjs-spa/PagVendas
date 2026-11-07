@@ -1,4 +1,4 @@
-import { Brain, Cpu, Info, LockKeyhole, MessagesSquare, Scale, Sparkles, Users } from "lucide-react";
+import { Brain, Cpu, LockKeyhole, MessagesSquare, Scale, Sparkles, Users } from "lucide-react";
 import { aph360 } from "@/content/course";
 import { coursePhoto } from "@/content/media";
 import { Frame } from "../ui/Frame";
@@ -28,7 +28,7 @@ export function Dimensions() {
         </div>
 
         <div>
-          <SectionHead id="aph360-title" eyebrow={aph360.eyebrow} title={aph360.title} lead={aph360.body} align="left" />
+          <SectionHead id="aph360-title" title={aph360.title} lead={aph360.body} align="left" />
 
           <div className="mt-6 rounded-2xl bg-navy p-5 text-white shadow-[var(--shadow-card)] sm:p-6" data-tone="dark">
             <p className="flex items-center gap-2 text-[0.75rem] font-bold tracking-[0.05em] text-sky uppercase">
@@ -42,7 +42,7 @@ export function Dimensions() {
               const Icon = icons[i];
               return (
                 <li key={d} className="flex items-center gap-3 rounded-2xl border border-line bg-mist p-3.5 transition hover:-translate-y-0.5 hover:shadow-md">
-                  <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-blue text-white">
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-navy text-white">
                     <Icon aria-hidden className="size-5" />
                   </span>
                   <span className="text-[0.95rem] leading-snug font-semibold">{d}</span>
@@ -50,14 +50,6 @@ export function Dimensions() {
               );
             })}
           </ul>
-
-          <aside
-            aria-label={aph360.complementLabel}
-            className="mt-6 flex gap-3 rounded-2xl border border-blue/20 bg-blue/5 p-4 text-[0.9rem] leading-relaxed text-ink/75"
-          >
-            <Info aria-hidden className="mt-0.5 size-5 shrink-0 text-blue" />
-            <p>{aph360.complement}</p>
-          </aside>
         </div>
       </div>
     </section>

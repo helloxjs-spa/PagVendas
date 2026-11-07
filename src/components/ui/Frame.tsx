@@ -7,7 +7,7 @@ type Props = {
   sizes: string;
   priority?: boolean;
   className?: string;
-  /** Posição da etiqueta de "foto pendente" (modo revisão). */
+  /** Posição da etiqueta com o nome da foto esperada (modo revisão). */
   tag?: "top" | "bottom" | "none";
 };
 
@@ -38,7 +38,7 @@ export function Frame({ slot, sizes, priority, className = "", tag = "top" }: Pr
     <div
       className={`plate relative overflow-hidden ${className}`}
       role={site.reviewMode ? "img" : undefined}
-      aria-label={site.reviewMode ? `Foto pendente: ${slot.label}. ${slot.note}` : undefined}
+      aria-label={site.reviewMode ? slot.label : undefined}
       aria-hidden={site.reviewMode ? undefined : true}
     >
       {site.reviewMode && tag !== "none" && (
@@ -47,9 +47,7 @@ export function Frame({ slot, sizes, priority, className = "", tag = "top" }: Pr
             tag === "top" ? "top-3" : "bottom-3"
           }`}
         >
-          <span className="block text-[0.62rem] font-bold tracking-[0.06em] text-blue uppercase">Foto pendente</span>
           <span className="block text-[0.82rem] leading-snug font-semibold">{slot.label}</span>
-          <span className="hidden text-[0.72rem] leading-snug text-ink/60 sm:block">{slot.note}</span>
         </span>
       )}
     </div>

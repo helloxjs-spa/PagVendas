@@ -36,7 +36,7 @@ export function Header({ items }: { items: NavItem[] }) {
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
       <div
         className={`pointer-events-auto mx-auto flex h-16 max-w-[76rem] items-center justify-between gap-4 rounded-2xl bg-white/95 pr-2 pl-4 transition-shadow duration-300 sm:pl-5 lg:h-[4.25rem] ${
-          scrolled || open ? "shadow-[0_12px_32px_rgba(11,26,69,0.18)]" : "shadow-[0_8px_24px_rgba(11,26,69,0.12)]"
+          scrolled || open ? "shadow-[0_12px_32px_rgba(8,27,52,0.18)]" : "shadow-[0_8px_24px_rgba(8,27,52,0.12)]"
         }`}
       >
         <a href="#inicio" className="shrink-0" aria-label="Grupo EDASI — voltar ao início" onClick={() => setOpen(false)}>
@@ -63,7 +63,7 @@ export function Header({ items }: { items: NavItem[] }) {
         </nav>
 
         <div className="flex items-center gap-1.5">
-          <Cta kind="registration" className="hidden !min-h-11 !rounded-xl !px-5 !text-[0.78rem] sm:inline-flex">
+          <Cta kind="registration" className="btn-pulse hidden !min-h-11 !rounded-xl !px-5 !text-[0.78rem] sm:inline-flex">
             {ctaLabels.registrationShort}
           </Cta>
           <button
@@ -83,7 +83,7 @@ export function Header({ items }: { items: NavItem[] }) {
       <div
         id="menu-mobile"
         hidden={!open}
-        className="pointer-events-auto mx-auto mt-2 max-w-[76rem] rounded-2xl bg-white p-3 shadow-[0_16px_40px_rgba(11,26,69,0.22)] lg:hidden"
+        className="pointer-events-auto mx-auto mt-2 max-w-[76rem] rounded-2xl bg-white p-3 shadow-[0_16px_40px_rgba(8,27,52,0.22)] lg:hidden"
       >
         <nav aria-label="Navegação principal (celular)">
           <ul className="grid gap-1">

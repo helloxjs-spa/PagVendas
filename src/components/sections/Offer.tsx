@@ -12,7 +12,7 @@ export function Offer() {
     <section id="investimento" aria-labelledby="investimento-title" className="relative isolate overflow-hidden py-20 sm:py-28">
       <div className="absolute inset-0 -z-10">
         <Frame slot={closingPhoto} sizes="100vw" className="size-full" tag="top" />
-        {closingPhoto.photo && <div className="absolute inset-0 bg-[linear-gradient(rgba(11,26,69,0.78),rgba(15,33,84,0.62))]" />}
+        {closingPhoto.photo && <div className="absolute inset-0 bg-[linear-gradient(rgba(8,27,52,0.78),rgba(8,27,52,0.62))]" />}
       </div>
 
       <div className="wrap flex justify-center">
@@ -20,19 +20,17 @@ export function Offer() {
           {/* Selo */}
           <div
             aria-hidden
-            className="absolute -top-7 -right-3 flex size-24 rotate-12 flex-col items-center justify-center rounded-full bg-sun px-2 text-ink shadow-[0_12px_24px_rgba(180,140,0,0.3)] sm:-right-6 sm:size-28"
+            className="absolute -top-7 -right-3 flex size-24 rotate-12 flex-col items-center justify-center rounded-full bg-sun px-2 text-ink shadow-[0_12px_24px_rgba(164,110,0,0.3)] sm:-right-6 sm:size-28"
           >
             <span className="text-[1.35rem] leading-none font-extrabold sm:text-[1.55rem]">{c.seal.top}</span>
             <span className="mt-1 text-[0.62rem] leading-tight font-bold tracking-[0.02em] uppercase">{c.seal.bottom}</span>
           </div>
-
-          <p className="pill border-blue/30 bg-blue/5 text-blue">{investment.eyebrow}</p>
-          <Headline id="investimento-title" text={investment.title} className="mt-4 text-[clamp(1.6rem,1.2rem+1.4vw,2.2rem)]" />
+          <Headline id="investimento-title" text={investment.title} className="text-[clamp(1.6rem,1.2rem+1.4vw,2.2rem)]" />
           <p className="mt-3 text-[0.95rem] text-ink/65">{investment.text}</p>
 
           {/* Preço atual */}
           <div className="mt-7 overflow-hidden rounded-[18px] border-2 border-blue/25">
-            <p className="bg-blue px-4 py-2 text-[0.75rem] font-bold tracking-[0.05em] text-white uppercase">
+            <p className="bg-navy px-4 py-2 text-[0.75rem] font-bold tracking-[0.05em] text-white uppercase">
               {c.tag} · {c.condition}
             </p>
             <div className="grid sm:grid-cols-2">
@@ -46,14 +44,14 @@ export function Offer() {
                 </p>
                 <p className="mt-1 text-[0.88rem] text-ink/65">{c.priceNote}</p>
               </div>
-              <div className="border-t border-line bg-[#eefaf3] p-5 sm:border-t-0 sm:border-l">
-                <p className="flex items-center justify-center gap-2 text-[0.8rem] font-semibold text-[#0f6a36]">
+              <div className="border-t border-line bg-signal p-5 sm:border-t-0 sm:border-l">
+                <p className="flex items-center justify-center gap-2 text-[0.8rem] font-semibold text-navy">
                   <CreditCard aria-hidden className="size-4" /> {c.card.label}
                 </p>
-                <p className="mt-1 text-[clamp(2.4rem,1.9rem+2.4vw,3.2rem)] leading-none font-extrabold tracking-[-0.03em] text-[#0f6a36]">
+                <p className="mt-1 text-[clamp(2.4rem,1.9rem+2.4vw,3.2rem)] leading-none font-extrabold tracking-[-0.03em] text-navy">
                   {c.card.value}
                 </p>
-                <p className="mt-2 text-[0.88rem] font-medium text-[#0f6a36]">{c.card.note}</p>
+                <p className="mt-2 text-[0.88rem] font-medium text-navy">{c.card.note}</p>
               </div>
             </div>
           </div>

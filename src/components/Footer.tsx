@@ -12,7 +12,7 @@ export function Footer({ items }: { items: NavItem[] }) {
   const a = site.address;
 
   return (
-    <footer data-tone="dark" className="bg-[#0d2a6b] text-white">
+    <footer data-tone="dark" className="bg-navy text-white">
       <div className="wrap grid gap-10 py-14 md:grid-cols-[1.1fr_1.3fr_0.8fr]">
         <div>
           <span className="inline-block rounded-2xl bg-white px-5 py-3">
@@ -77,10 +77,10 @@ export function Footer({ items }: { items: NavItem[] }) {
         </nav>
       </div>
 
-      <div className="bg-[#08205a] py-5 text-center text-[0.82rem] text-white/60">
+      <div className="border-t border-white/10 py-5 text-center text-[0.82rem] text-white/60">
         <div className="wrap flex flex-col gap-1 sm:flex-row sm:justify-between">
           <span>
-            © {year} {site.name}.{site.reviewMode && " Material em revisão."}
+            © {year} {site.name}.
           </span>
           <span>{footer.disclaimer}</span>
         </div>

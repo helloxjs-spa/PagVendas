@@ -7,7 +7,7 @@ import { WhatsAppGlyph } from "./WhatsAppGlyph";
 
 type Props = {
   kind: "registration" | "whatsapp";
-  variant?: "signal" | "blue" | "outline" | "link";
+  variant?: "signal" | "blue" | "outline" | "outline-dark" | "link";
   children: React.ReactNode;
   className?: string;
 };

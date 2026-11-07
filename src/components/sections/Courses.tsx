@@ -14,7 +14,7 @@ export function Courses() {
   return (
     <section id="cursos" aria-labelledby="cursos-title" className="bg-white py-20 sm:py-24">
       <div className="wrap">
-        <SectionHead id="cursos-title" eyebrow={otherCourses.eyebrow} title={otherCourses.title} lead={otherCourses.lead} />
+        <SectionHead id="cursos-title" title={otherCourses.title} lead={otherCourses.lead} />
 
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {otherCourses.items.map((c, i) => {

@@ -82,14 +82,12 @@ export const method = {
       text: "Refletir sobre raciocínio, execução técnica e postura durante as atividades para consolidar o aprendizado.",
     },
   ],
-  disclaimer:
-    "A metodologia descrita é uma apresentação preliminar e pode ser ajustada na confirmação final do programa.",
 };
 
 export const schedule = {
   eyebrow: "Duração e organização das aulas",
   title: "Quatro meses.|*Dois encontros por semana.*",
-  lead: "O curso de APH tem duração de quatro meses, com aulas duas vezes por semana. Conheça a organização da turma da manhã e da turma noturna em São Bernardo do Campo, SP.",
+  lead: "O curso de APH tem duração de quatro meses, com aulas duas vezes por semana.",
   cohorts: [
     { label: "Próxima turma", month: "xxxxx", year: "" },
     { label: "Turma seguinte", month: "Abril", year: "2027" },
@@ -110,8 +108,6 @@ export const schedule = {
     text: "Dois encontros por semana, sempre às terças e quintas-feiras, durante os quatro meses de curso.",
   },
   weekdays: ["Seg", "Ter", "Qua", "Qui", "Sex"],
-  validation:
-    "Meses das turmas e organização semanal informados pela instituição. Dias exatos de início, horários de cada turno e calendário detalhado serão confirmados pela equipe.",
 };
 
 export const curriculum = {
@@ -119,10 +115,6 @@ export const curriculum = {
   title: "Do fundamento|ao *simulado.*",
   intro:
     "Técnicas e protocolos de urgência e emergência como base, com prática orientada e temas para ampliar o repertório de APH. Ao longo desse percurso, entram as dimensões da capacitação 360°. São 240 horas em 30 aulas, com 2 simulados e módulo de salvamento aquático.",
-  reference: {
-    title: "Referência curricular",
-    text: "Portaria GM/MS 2048/2002. Citação de referência; não representa certificação, homologação ou reconhecimento oficial.",
-  },
   /** is360: itens que o próprio texto associa às dimensões da capacitação 360°. */
   items: [
     {
@@ -196,22 +188,16 @@ export const aph360 = {
 export const experience = {
   eyebrow: "Veja o curso por dentro",
   title: "APH na prática.|*O percurso em vídeo.*",
-  reviewNote:
-    "Espaço preparado para os vídeos reais das disciplinas. Os blocos são placeholders: nenhum vídeo foi inventado ou incorporado.",
 };
 
 export const gallery = {
   eyebrow: "Galeria de vivências",
-  title: "O que a imagem|*precisa contar.*",
-  reviewNote:
-    "Use estas áreas apenas com fotos reais, autorizadas e contextualizadas. Os espaços abaixo são marcadores de direção visual para a revisão.",
+  title: "Registros das|*aulas práticas.*",
 };
 
 export const testimonials = {
   eyebrow: "Depoimentos de alunos",
   title: "Quem viveu o curso|pode contar a sua *experiência.*",
-  reviewNote:
-    "Reserve este espaço para vídeos ou relatos autênticos de alunos, usados somente após autorização de imagem e validação do conteúdo.",
 };
 
 export const investment = {
@@ -308,15 +294,6 @@ export const footer = {
   course: "Curso Atendimento Pré-Hospitalar · APH 2027",
   place: "São Bernardo do Campo · SP",
   disclaimer: "Sem promessa de habilitação, emprego ou certificação.",
-};
-
-/** Compromisso do EDASI — a partir das respostas do formulário institucional. */
-export const commitment = {
-  eyebrow: "Nosso compromisso",
-  title: "Cuidado humano com o|*desenvolvimento de cada aluno.*",
-  text: "Mais do que cursos e certificados: o Grupo EDASI desenvolve pessoas, conecta conhecimento à prática e contribui para a formação de profissionais mais preparados para o mercado de trabalho, especialmente na área da saúde.",
-  quote: "Em quatro meses, ninguém sai expert em APH. O objetivo é que você mude o comportamento, desenvolva novas habilidades e siga buscando conhecimento.",
-  values: ["Credibilidade", "Acolhimento", "Profissionalismo", "Inovação", "Qualidade", "Confiança"],
 };
 
 /** Outras formações — prioridades comerciais informadas pelo EDASI. */

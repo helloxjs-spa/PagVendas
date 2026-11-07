@@ -8,6 +8,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Pillars } from "@/components/sections/Pillars";
 import { Method } from "@/components/sections/Method";
 import { Dimensions } from "@/components/sections/Dimensions";
+import { Marquee } from "@/components/sections/Marquee";
 import { Schedule } from "@/components/sections/Schedule";
 import { Program } from "@/components/sections/Program";
 import { Videos } from "@/components/sections/Videos";
@@ -16,7 +17,6 @@ import { Voices } from "@/components/sections/Voices";
 import { Offer } from "@/components/sections/Offer";
 import { Faq } from "@/components/sections/Faq";
 import { FinalBand } from "@/components/sections/FinalBand";
-import { Commitment } from "@/components/sections/Commitment";
 import { Courses } from "@/components/sections/Courses";
 
 export default function Page() {
@@ -41,8 +41,9 @@ export default function Page() {
         <Pillars />
         <Method />
         <Dimensions />
-        <Commitment />
+        <Marquee />
         <Schedule />
+        <Marquee />
         <Program />
         <Videos />
         <Gallery />

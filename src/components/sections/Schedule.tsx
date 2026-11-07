@@ -13,9 +13,9 @@ export function Schedule() {
   ];
 
   return (
-    <section id="turmas" aria-labelledby="turmas-title" className="bg-mist py-20 sm:py-24">
+    <section id="turmas" aria-labelledby="turmas-title" data-tone="yellow" className="bg-signal py-20 sm:py-24">
       <div className="wrap">
-        <SectionHead id="turmas-title" eyebrow={schedule.eyebrow} title={schedule.title} lead={schedule.lead} />
+        <SectionHead id="turmas-title" title={schedule.title} lead={schedule.lead} />
 
         {/* Datas das turmas */}
         <dl className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-2">
@@ -30,7 +30,7 @@ export function Schedule() {
                   first ? "bg-navy text-white shadow-[var(--shadow-card)]" : "card"
                 }`}
               >
-                <span className={`flex size-14 shrink-0 items-center justify-center rounded-2xl ${first ? "bg-signal text-ink" : "bg-blue text-white"}`}>
+                <span className={`flex size-14 shrink-0 items-center justify-center rounded-2xl ${first ? "bg-signal text-ink" : "bg-navy text-white"}`}>
                   <Icon aria-hidden className="size-7" />
                 </span>
                 <div>
@@ -45,7 +45,7 @@ export function Schedule() {
         </dl>
 
         {/* Quadro de horários */}
-        <div className="card mx-auto mt-6 max-w-4xl p-4 sm:p-8">
+        <div data-tone="light" className="card mx-auto mt-6 max-w-4xl p-4 sm:p-8">
           <table className="w-full border-collapse text-left">
             <caption className="sr-only">Dias de aula de cada turma</caption>
             <thead>
@@ -78,7 +78,7 @@ export function Schedule() {
                         <td key={d} className="py-4 text-center align-middle">
                           <span
                             className={`inline-block size-6 rounded-md align-middle sm:size-9 sm:rounded-lg ${
-                              on ? "bg-blue shadow-[0_6px_14px_rgba(37,99,217,0.3)]" : "bg-mist ring-1 ring-line ring-inset"
+                              on ? "bg-navy shadow-[0_6px_14px_rgba(8,27,52,0.3)]" : "bg-mist ring-1 ring-line ring-inset"
                             }`}
                           >
                             <span className="sr-only">{on ? "aula" : "sem aula"}</span>
@@ -101,8 +101,6 @@ export function Schedule() {
             ))}
           </div>
         </div>
-
-        <p className="mx-auto mt-6 max-w-4xl text-center text-[0.8rem] leading-relaxed text-ink/50">{schedule.validation}</p>
       </div>
     </section>
   );

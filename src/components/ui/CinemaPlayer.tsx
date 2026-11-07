@@ -22,17 +22,12 @@ export function CinemaPlayer({ items, reviewMode }: Props) {
           <div
             className="plate absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center text-white"
             role="img"
-            aria-label={`Vídeo pendente: ${current.title}. ${current.note}`}
+            aria-label={`Vídeo: ${current.title}`}
           >
             <span aria-hidden className="flex size-16 items-center justify-center rounded-full bg-signal text-ink shadow-lg sm:size-20">
               <Play className="ml-1 size-7 fill-current" />
             </span>
             <span className="text-[1.2rem] font-bold sm:text-[1.6rem]">{current.title}</span>
-            {reviewMode && (
-              <span className="rounded-full bg-white/95 px-4 py-1.5 text-[0.72rem] font-semibold text-ink">
-                Vídeo pendente · {current.note}
-              </span>
-            )}
           </div>
         )}
       </div>

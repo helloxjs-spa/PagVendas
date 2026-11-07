@@ -14,14 +14,12 @@ export function Videos() {
       id="conteudos-visuais"
       aria-labelledby="videos-title"
       data-tone="dark"
-      className="bg-[linear-gradient(180deg,#0b1a45_0%,#16357f_100%)] py-20 text-white sm:py-24"
+      className="bg-navy py-20 text-white sm:py-24"
     >
       <div className="wrap">
         <SectionHead
           id="videos-title"
-          eyebrow={experience.eyebrow}
           title={experience.title}
-          lead={site.reviewMode ? experience.reviewNote : undefined}
           tone="dark"
         />
         <div className="mt-12" data-reveal>

@@ -15,9 +15,7 @@ export function Gallery() {
       <div className="wrap">
         <SectionHead
           id="galeria-title"
-          eyebrow={gallery.eyebrow}
           title={gallery.title}
-          lead={site.reviewMode ? gallery.reviewNote : undefined}
         />
         <div className="mt-12">
           <Carousel label="Fotos do curso">
@@ -27,7 +25,7 @@ export function Gallery() {
                   <Frame
                     slot={slot}
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 80vw"
-                    tag="bottom"
+                    tag="none"
                     className="h-[19rem] rounded-[18px] shadow-[0_8px_20px_rgba(0,0,0,0.12)] sm:h-[21rem]"
                   />
                   <figcaption className="mt-3 text-center text-[0.9rem] font-semibold text-ink/75">{slot.label}</figcaption>

@@ -13,10 +13,10 @@ export function Method() {
       id="metodologia"
       aria-labelledby="metodo-title"
       data-tone="dark"
-      className="bg-[linear-gradient(180deg,#0b1a45_0%,#16357f_100%)] py-20 text-white sm:py-24"
+      className="bg-navy py-20 text-white sm:py-24"
     >
       <div className="wrap">
-        <SectionHead id="metodo-title" eyebrow={method.eyebrow} title={method.title} tone="dark" />
+        <SectionHead id="metodo-title" title={method.title} tone="dark" />
 
         <ol className="mt-16 grid gap-x-5 gap-y-12 md:grid-cols-3">
           {method.steps.map((step, i) => {
@@ -42,7 +42,7 @@ export function Method() {
         </ol>
 
         {/* Caixa de chamada com selo */}
-        <div className="mt-8 grid items-center gap-8 rounded-[24px] bg-[#0a2160] p-7 shadow-[0_18px_38px_rgba(0,0,0,0.2)] sm:p-10 md:grid-cols-[10rem_1fr]">
+        <div className="mt-8 grid items-center gap-8 rounded-[24px] bg-[#10284a] p-7 shadow-[0_18px_38px_rgba(0,0,0,0.2)] sm:p-10 md:grid-cols-[10rem_1fr]">
           <div
             aria-hidden
             className="mx-auto flex size-36 flex-col items-center justify-center rounded-full border-[6px] border-white/15 bg-signal text-center text-ink shadow-lg md:size-40"
@@ -54,14 +54,12 @@ export function Method() {
             <Headline as="h3" text={aph360.statement} className="text-[clamp(1.6rem,1.1rem+1.6vw,2.3rem)] text-white" />
             <p className="mt-3 max-w-2xl text-white/80 max-md:mx-auto">{aph360.statementNote}</p>
             <div className="mt-6">
-              <Cta kind="registration" className="w-full sm:w-auto">
+              <Cta kind="registration" className="btn-pulse w-full sm:w-auto">
                 {ctaLabels.registration}
               </Cta>
             </div>
           </div>
         </div>
-
-        <p className="mt-6 text-center text-[0.82rem] text-white/55">{method.disclaimer}</p>
       </div>
     </section>
   );

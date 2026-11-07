@@ -96,10 +96,10 @@ export const closingPhoto: PhotoSlot = {
 };
 
 export const videos: VideoSlot[] = [
-  { title: "Técnicas e protocolos de APH", note: "Vídeo real do conteúdo — link pendente.", video: null },
-  { title: "Aulas práticas e simulados", note: "Vídeo real das atividades — link pendente.", video: null },
-  { title: "Módulo aquático", note: "Vídeo real do módulo — link pendente.", video: null },
-  { title: "APH 360°: equipe e passagem de casos", note: "Vídeo real do conteúdo — link pendente.", video: null },
+  { title: "Técnicas e protocolos de APH", note: "", video: null },
+  { title: "Aulas práticas e simulados", note: "", video: null },
+  { title: "Módulo aquático", note: "", video: null },
+  { title: "APH 360°: equipe e passagem de casos", note: "", video: null },
 ];
 
 /** As 4 primeiras vêm da página original; "Estrutura" e "Instrutores" foram sugeridas no briefing. */
@@ -113,8 +113,8 @@ export const galleryPhotos: PhotoSlot[] = [
 ];
 
 export const testimonialSlots = [
-  { code: "Vídeo", note: "Vídeo de aluno pendente de inclusão e autorização." },
-  { code: "Relato", note: "Relato real pendente de inclusão e autorização." },
+  { code: "Vídeo", note: "Depoimento em vídeo de aluno" },
+  { code: "Relato", note: "Relato de aluno" },
 ];
 
 export const testimonialsList: Testimonial[] = [];

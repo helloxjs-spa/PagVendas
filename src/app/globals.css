@@ -2,24 +2,25 @@
 
 @theme {
   /* Marca EDASI */
-  --color-ink: #151e3a; /* azul-marinho institucional (logo) */
-  --color-navy: #0f2154; /* seções escuras */
-  --color-navy-700: #1b3378;
-  --color-blue: #2563d9; /* destaque: palavras dos títulos, ícones, botão secundário */
-  --color-blue-dark: #173f9c;
-  --color-sky: #8fb4ff; /* destaque em fundo escuro */
-  --color-mist: #f4f7fc; /* fundo claro de alternância */
-  --color-line: #e2e9f4;
-  --color-signal: #ff5a1f; /* laranja — botões principais */
-  --color-signal-hover: #ff7440;
-  --color-sun: #ffd23f; /* selo de economia */
+  /* Três cores: azul #081B34, amarelo #F5C451 e branco */
+  --color-ink: #081b34; /* texto */
+  --color-navy: #081b34; /* azul principal */
+  --color-navy-700: #10284a; /* variação do azul para hover/profundidade */
+  --color-blue: #081b34; /* destaques em fundo claro (azul + marca-texto amarelo) */
+  --color-blue-dark: #10284a;
+  --color-sky: #f5c451; /* destaques em fundo azul */
+  --color-mist: #f3f5f8; /* tom neutro do azul, só para pequenos blocos internos */
+  --color-line: #e3e7ed; /* filetes (azul em baixa opacidade) */
+  --color-signal: #f5c451; /* amarelo — botões principais */
+  --color-signal-hover: #f7d06e;
+  --color-sun: #f5c451;
 
   --breakpoint-xs: 26rem;
 
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 
-  --shadow-soft: 0 14px 32px rgba(15, 33, 84, 0.08);
-  --shadow-card: 0 20px 44px rgba(15, 33, 84, 0.12);
+  --shadow-soft: 0 14px 32px rgba(8, 27, 52, 0.08);
+  --shadow-card: 0 20px 44px rgba(8, 27, 52, 0.13);
 
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -39,8 +40,8 @@
   }
 
   ::selection {
-    background: var(--color-blue);
-    color: #fff;
+    background: var(--color-signal);
+    color: var(--color-navy);
   }
 
   /* Palavra de destaque dos títulos (marcada com *…* no conteúdo) */
@@ -49,17 +50,32 @@
   h3 em,
   .display em {
     font-style: normal;
-    color: var(--color-blue);
+    color: var(--color-navy);
+    background-image: linear-gradient(transparent 58%, var(--color-signal) 58%, var(--color-signal) 92%, transparent 92%);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding-inline: 0.06em;
+  }
+  [data-tone="yellow"] h1 em,
+  [data-tone="yellow"] h2 em,
+  [data-tone="yellow"] h3 em,
+  [data-tone="yellow"] .display em {
+    background-image: linear-gradient(transparent 58%, #fff 58%, #fff 92%, transparent 92%);
+  }
+  [data-tone="yellow"] [data-tone="light"] em {
+    background-image: linear-gradient(transparent 58%, var(--color-signal) 58%, var(--color-signal) 92%, transparent 92%);
   }
   [data-tone="dark"] h1 em,
   [data-tone="dark"] h2 em,
   [data-tone="dark"] h3 em,
   [data-tone="dark"] .display em {
     color: var(--color-sky);
+    background-image: none;
+    padding-inline: 0;
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-blue);
+    outline: 3px solid var(--color-navy);
     outline-offset: 3px;
   }
   [data-tone="dark"] :focus-visible {
@@ -98,16 +114,13 @@
     font-size: clamp(1.85rem, 1.2rem + 2.2vw, 2.75rem);
   }
 
-  /* Selo em pílula */
-  .pill {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl border px-4 py-1.5 text-center text-[0.7rem] leading-snug font-bold tracking-[0.04em] uppercase sm:rounded-full sm:text-[0.75rem];
-  }
 
   /* Bloco de ícone */
   .icon-tile {
     @apply flex size-13 shrink-0 items-center justify-center rounded-2xl text-white;
-    background: var(--color-blue);
-    box-shadow: 0 10px 18px rgba(37, 99, 217, 0.22);
+    background: var(--color-navy);
+    color: var(--color-sky);
+    box-shadow: 0 10px 18px rgba(8, 27, 52, 0.2);
   }
 
   .card {
@@ -131,17 +144,23 @@
   }
   .btn-signal {
     @apply bg-signal text-ink;
-    box-shadow: 0 14px 28px rgba(255, 90, 31, 0.3);
+    box-shadow: 0 14px 28px rgba(245, 196, 81, 0.35);
   }
   .btn-signal:hover {
     @apply bg-signal-hover;
   }
   .btn-blue {
-    @apply bg-blue text-white;
-    box-shadow: 0 14px 28px rgba(37, 99, 217, 0.28);
+    @apply bg-navy text-white;
+    box-shadow: 0 14px 28px rgba(8, 27, 52, 0.25);
   }
   .btn-blue:hover {
-    @apply bg-blue-dark;
+    @apply bg-navy-700;
+  }
+  .btn-outline-dark {
+    @apply border-2 border-navy text-navy;
+  }
+  .btn-outline-dark:hover {
+    @apply bg-navy/5;
   }
   .btn-outline {
     @apply border-2 border-white/80 text-white;
@@ -153,7 +172,7 @@
   /* Placa: fundo marinho com marcas de registro, usado enquanto a foto real não chega */
   .plate {
     background-color: var(--color-navy-700);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cpath d='M22 18v8M18 22h8' stroke='%238fb4ff' stroke-opacity='.3' stroke-width='1'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cpath d='M22 18v8M18 22h8' stroke='%23f5c451' stroke-opacity='.28' stroke-width='1'/%3E%3C/svg%3E");
     background-size: 44px 44px;
   }
 }
@@ -170,6 +189,52 @@
   .reveal-ready [data-reveal].is-in {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Faixa em esteira: duas cópias lado a lado deslizam da esquerda para a direita */
+@media (prefers-reduced-motion: no-preference) {
+  .marquee {
+    animation: marquee-ltr 38s linear infinite;
+  }
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Botões que "pulsam": crescem e diminuem suavemente.
+   Usa a propriedade scale (separada de transform) para não conflitar com o hover. */
+@media (prefers-reduced-motion: no-preference) {
+  .btn-pulse {
+    animation: btn-pulse 1.8s ease-in-out infinite;
+    will-change: scale;
+  }
+  .btn-pulse:hover,
+  .btn-pulse:focus-visible {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes btn-pulse {
+  0%,
+  100% {
+    scale: 1;
+    box-shadow: 0 14px 28px rgba(245, 196, 81, 0.35);
+  }
+  50% {
+    scale: 1.06;
+    box-shadow:
+      0 0 0 8px rgba(245, 196, 81, 0.18),
+      0 18px 34px rgba(245, 196, 81, 0.45);
   }
 }
 
