@@ -11,7 +11,7 @@ export function Gallery() {
   if (!site.reviewMode && items.length < 3) return null;
 
   return (
-    <section aria-labelledby="galeria-title" className="bg-white py-20 sm:py-24">
+    <section aria-labelledby="galeria-title" className="bg-white pt-20 pb-8 sm:pt-24 sm:pb-10">
       <div className="wrap">
         <SectionHead
           id="galeria-title"

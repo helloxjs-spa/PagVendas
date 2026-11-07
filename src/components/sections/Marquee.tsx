@@ -17,7 +17,7 @@ function Track({ hidden = false }: { hidden?: boolean }) {
           <span className="px-7 text-[0.85rem] font-extrabold tracking-[0.22em] whitespace-nowrap uppercase sm:px-9 sm:text-[0.95rem]">
             {p}
           </span>
-          <span aria-hidden className="size-2 shrink-0 rounded-full bg-signal" />
+          <span aria-hidden className="size-2 shrink-0 rounded-full bg-alert" />
         </li>
       ))}
     </ul>

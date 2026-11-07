@@ -114,7 +114,7 @@ export const curriculum = {
   eyebrow: "Programa previsto do curso APH",
   title: "Do fundamento|ao *simulado.*",
   intro:
-    "Técnicas e protocolos de urgência e emergência como base, com prática orientada e temas para ampliar o repertório de APH. Ao longo desse percurso, entram as dimensões da capacitação 360°. São 240 horas em 30 aulas, com 2 simulados e módulo de salvamento aquático.",
+    "Técnicas e protocolos de urgência e emergência como base, com prática orientada e temas para ampliar o repertório de APH.",
   /** is360: itens que o próprio texto associa às dimensões da capacitação 360°. */
   items: [
     {
@@ -237,30 +237,17 @@ export const faq = {
       q: "O que a capacitação 360° acrescenta ao APH?",
       a: "Ela amplia o olhar sobre o atendimento ao integrar comunicação, trabalho em equipe, postura, ética, cuidado com dados e inovação em saúde à formação técnica. Não substitui o foco em APH, não é um curso de comunicação separado nem uma alegação de exclusividade no mercado.",
     },
-    {
-      q: "Quando são as próximas turmas?",
-      a: "A próxima turma é em xxxxx e a turma seguinte em abril de 2027. Os dias exatos de início e os horários de cada turno serão confirmados pela equipe.",
-    },
+  
     {
       q: "Qual é a duração e a frequência das aulas?",
       a: "O curso tem duração de quatro meses, com aulas duas vezes por semana. Há turma da manhã e turma noturna.",
     },
-    {
-      q: "Quais são os dias das aulas?",
-      a: "A turma noturna tem aulas às terças e quintas-feiras. Na turma da manhã, uma semana é segunda e quarta-feira; na seguinte, terça e quinta-feira. Essa alternância se repete semanalmente, conforme o calendário de cada turma a ser informado pela equipe.",
-    },
-    {
-      q: "Qual é a carga horária?",
-      a: "São 240 horas, distribuídas em 30 aulas ao longo de quatro meses, incluindo 2 simulados e um módulo de salvamento aquático.",
-    },
+  
     {
       q: "O curso é só para quem é da área da saúde?",
       a: "Não. O Grupo EDASI recebe tanto profissionais da saúde quanto pessoas que estão começando na área.",
     },
-    {
-      q: "Ao me formar, já posso trabalhar no SAMU?",
-      a: "O curso não garante contratação nem habilitação para atuar em um serviço específico. Em quatro meses, ninguém sai expert em APH: a proposta é desenvolver técnica, comportamento e a busca por mais conhecimento. Requisitos profissionais e oportunidades dependem de fatores externos e de cada serviço.",
-    },
+  
     {
       q: "Moro longe ou não consigo ir duas vezes por semana. Existe outra opção?",
       a: "Sim. O APH Híbrido (150h) combina atividades online e presenciais, com maior flexibilidade, e a próxima turma está prevista para a primeira semana de dezembro. Também há o APH EAD, para alunos de outras regiões do Brasil.",
@@ -269,10 +256,7 @@ export const faq = {
       q: "Quais são as formas de pagamento?",
       a: "Para matrículas até 31/12/2026: R$ 1.400 no boleto, em até 4x, ou R$ 1.200 no cartão de crédito (R$ 200 de desconto), em até 6x. A partir de 2027, o curso passa a custar R$ 1.850 no cartão, em até 10x, e R$ 2.100 no boleto, em até 5x.",
     },
-    {
-      q: "O curso é certificado ou homologado pela Portaria GM/MS 2048/2002?",
-      a: "Não. A Portaria GM/MS 2048/2002 é citada somente como referência curricular. Esta página não afirma certificação, homologação, credenciamento ou reconhecimento oficial.",
-    },
+    
     {
       q: "As capacitações complementares estão incluídas no valor do APH?",
       a: "Não. Inteligência emocional, marketing pessoal, gestão financeira e empreendedorismo são citados como opções complementares oferecidas separadamente e de forma opcional. Consulte disponibilidade, valores e condições.",

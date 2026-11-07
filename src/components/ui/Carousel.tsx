@@ -13,7 +13,7 @@ export function Carousel({ children, label }: { children: React.ReactNode; label
     el.scrollBy({ left: dir * ((item?.clientWidth ?? 300) + 18), behavior: "smooth" });
   };
   const arrow =
-    "absolute top-1/2 z-10 hidden size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-navy text-white shadow-lg transition hover:scale-105 hover:bg-navy-700 sm:flex";
+    "absolute top-1/2 z-10 hidden size-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-navy text-white shadow-lg transition hover:scale-105 hover:bg-alert sm:flex";
 
   return (
     <div className="relative">

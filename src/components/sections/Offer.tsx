@@ -4,8 +4,9 @@ import { closingPhoto } from "@/content/media";
 import { Cta } from "../ui/Cta";
 import { Frame } from "../ui/Frame";
 import { Headline } from "../ui/Headline";
+import { Seal } from "../ui/Seal";
 
-/** Investimento: foto de fundo com cartão branco flutuante, formas de pagamento e valores de 2027. */
+/** Investimento: foto de fundo com cartão branco flutuante, formas de pagamento e prazo. */
 export function Offer() {
   const c = investment.card;
   return (
@@ -18,13 +19,7 @@ export function Offer() {
       <div className="wrap flex justify-center">
         <div className="relative w-full max-w-[40rem] rounded-[26px] bg-white p-6 text-center shadow-[0_30px_60px_rgba(0,0,0,0.3)] sm:p-10">
           {/* Selo */}
-          <div
-            aria-hidden
-            className="absolute -top-7 -right-3 flex size-24 rotate-12 flex-col items-center justify-center rounded-full bg-sun px-2 text-ink shadow-[0_12px_24px_rgba(164,110,0,0.3)] sm:-right-6 sm:size-28"
-          >
-            <span className="text-[1.35rem] leading-none font-extrabold sm:text-[1.55rem]">{c.seal.top}</span>
-            <span className="mt-1 text-[0.62rem] leading-tight font-bold tracking-[0.02em] uppercase">{c.seal.bottom}</span>
-          </div>
+          <Seal className="absolute -top-7 -right-3 sm:-right-6" />
           <Headline id="investimento-title" text={investment.title} className="text-[clamp(1.6rem,1.2rem+1.4vw,2.2rem)]" />
           <p className="mt-3 text-[0.95rem] text-ink/65">{investment.text}</p>
 
@@ -65,27 +60,14 @@ export function Offer() {
             </Cta>
           </div>
 
-          {/* Prazo e valores de 2027 */}
+          {/* Prazo */}
           <div className="mt-6 rounded-2xl bg-mist p-4 text-left text-[0.9rem] leading-relaxed text-ink/75">
             <p className="flex gap-3">
-              <CalendarClock aria-hidden className="mt-0.5 size-5 shrink-0 text-blue" />
+              <CalendarClock aria-hidden className="mt-0.5 size-5 shrink-0 text-alert" />
               <span>
-                <strong className="text-ink">{investment.deadline.strong}.</strong> {investment.cohortNote} {investment.deadline.text}
+                <strong className="text-alert">{investment.deadline.strong}.</strong> {investment.cohortNote} {investment.deadline.text}
               </span>
             </p>
-            <div className="mt-3 border-t border-line pt-3">
-              <p className="text-[0.75rem] font-bold tracking-[0.05em] text-ink/55 uppercase">{c.future.label}</p>
-              <dl className="mt-2 grid gap-2 sm:grid-cols-2">
-                {c.future.rows.map((r) => (
-                  <div key={r.method} className="rounded-xl bg-white px-3 py-2">
-                    <dt className="text-[0.8rem] text-ink/60">{r.method}</dt>
-                    <dd className="font-bold text-ink/75">
-                      {r.value} <span className="text-[0.8rem] font-medium text-ink/60">{r.note}</span>
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
           </div>
 
           <p className="mt-4 text-[0.75rem] leading-relaxed text-ink/50">{investment.footnote}</p>

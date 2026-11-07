@@ -4,6 +4,7 @@ import { heroPhoto } from "@/content/media";
 import { Cta } from "../ui/Cta";
 import { Frame } from "../ui/Frame";
 import { Headline } from "../ui/Headline";
+import { Seal } from "../ui/Seal";
 
 const ledgerIcons = [Clock, ListChecks, Waves, Tag];
 
@@ -17,13 +18,12 @@ export function Hero() {
           {heroPhoto.photo && <div className="absolute inset-0 bg-[linear-gradient(rgba(8,27,52,0.84),rgba(8,27,52,0.74))]" />}
         </div>
 
-        <div className="wrap flex flex-col items-center pt-32 pb-36 text-center sm:pt-40 sm:pb-44 lg:pt-44">
-          <Headline
-            as="h1"
-            id="hero-title"
-            text={hero.title}
-            className="max-w-4xl text-[clamp(2.3rem,1.2rem+4.4vw,4.6rem)] leading-[1.05] [&_br]:hidden sm:[&_br]:block"
-          />
+        <div className="wrap flex flex-col items-center pt-24 pb-36 text-center sm:pt-32 sm:pb-44 lg:pt-36">
+          <p className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[0.78rem] font-semibold tracking-[0.02em] text-white/90 backdrop-blur-sm">
+            <span aria-hidden className="live-dot" />
+            {hero.eyebrow}
+          </p>
+          <Headline as="h1" id="hero-title" text={hero.title} className="max-w-4xl text-[clamp(2.3rem,1.2rem+4.4vw,4.6rem)] leading-[1.05] [&_em]:text-alert-bright [&_br]:hidden sm:[&_br]:block" />
           <p className="mt-6 max-w-2xl text-[1.02rem] leading-relaxed text-white/85 sm:text-[1.1rem]">{hero.intro}</p>
 
           <div className="mt-9 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
@@ -55,31 +55,31 @@ export function Hero() {
 export function HeroLedger() {
   return (
     <div className="wrap relative z-10 -mt-24 sm:-mt-28">
-      <dl className="card mx-auto grid max-w-6xl gap-px overflow-hidden border-t-4 !border-t-signal bg-line sm:grid-cols-2 lg:grid-cols-4" style={{ boxShadow: "var(--shadow-card)" }}>
-        {hero.ledger.map((item, i) => {
-          const Icon = ledgerIcons[i];
-          return (
-            <div
-              key={item.kicker}
-              className="flex items-center gap-4 bg-white px-6 py-5 sm:py-6"
-            >
-              <span className="icon-tile">
-                <Icon aria-hidden className="size-6" />
-              </span>
-              <div>
-                <dt className="text-[0.72rem] font-bold tracking-[0.05em] text-ink/55 uppercase">{item.kicker}</dt>
-                <dd>
-                  <span className="block text-[1.35rem] leading-tight font-extrabold text-ink">
-                    {item.value}
-                    {item.unit && <span className="text-blue">{item.unit}</span>}
-                  </span>
-                  <span className="block text-[0.82rem] text-ink/60">{item.note}</span>
-                </dd>
+      <div className="relative mx-auto max-w-6xl">
+        <Seal className="absolute -top-14 -right-2 z-10 sm:-top-16 sm:-right-5 lg:-top-20" />
+        <dl className="card grid gap-px overflow-hidden border-t-4 !border-t-alert bg-line sm:grid-cols-2 lg:grid-cols-4" style={{ boxShadow: "var(--shadow-card)" }}>
+          {hero.ledger.map((item, i) => {
+            const Icon = ledgerIcons[i];
+            return (
+              <div key={item.kicker} className="flex items-center gap-4 bg-white px-6 py-5 sm:py-6">
+                <span className="icon-tile">
+                  <Icon aria-hidden className="size-6" />
+                </span>
+                <div>
+                  <dt className="text-[0.72rem] font-bold tracking-[0.05em] text-ink/55 uppercase">{item.kicker}</dt>
+                  <dd>
+                    <span className="block text-[1.35rem] leading-tight font-extrabold text-ink">
+                      {item.value}
+                      {item.unit && <span className="text-blue">{item.unit}</span>}
+                    </span>
+                    <span className="block text-[0.82rem] text-ink/60">{item.note}</span>
+                  </dd>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </dl>
+            );
+          })}
+        </dl>
+      </div>
       <p className="mt-6 text-center">
         <a href="#turmas" className="text-[0.92rem] font-semibold text-current underline decoration-current/30 underline-offset-[6px] hover:decoration-current">
           {hero.factsLink} ↓

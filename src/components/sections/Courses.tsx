@@ -12,7 +12,7 @@ import { WhatsAppGlyph } from "../ui/WhatsAppGlyph";
  */
 export function Courses() {
   return (
-    <section id="cursos" aria-labelledby="cursos-title" className="bg-white py-20 sm:py-24">
+    <section id="cursos" aria-labelledby="cursos-title" className="bg-white pt-20 pb-12 sm:pt-24 sm:pb-14">
       <div className="wrap">
         <SectionHead id="cursos-title" title={otherCourses.title} lead={otherCourses.lead} />
 
@@ -35,7 +35,7 @@ export function Courses() {
                     className="object-cover"
                     style={{ objectPosition: c.photo.focus ?? "50% 50%" }}
                   />
-                  <span className="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-[0.7rem] font-bold tracking-[0.03em] text-blue uppercase shadow">
+                  <span className="absolute top-3 left-3 rounded-full bg-alert px-3 py-1 text-[0.7rem] font-bold tracking-[0.03em] text-white uppercase shadow">
                     {c.tag}
                   </span>
                 </div>
@@ -51,7 +51,7 @@ export function Courses() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-blue mt-5 !min-h-12 w-full !text-[0.8rem]"
+                      className="btn btn-whatsapp mt-5 !min-h-12 w-full !text-[0.8rem]"
                       aria-label={`Quero saber mais sobre ${c.name} pelo WhatsApp`}
                     >
                       <WhatsAppGlyph />

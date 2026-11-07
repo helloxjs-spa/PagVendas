@@ -20,7 +20,7 @@ export function Faq() {
   ];
 
   return (
-    <section id="perguntas" aria-labelledby="faq-title" className="border-t border-line bg-white py-20 sm:py-24">
+    <section id="perguntas" aria-labelledby="faq-title" className="border-t border-line bg-white pt-16 pb-20 sm:pt-20 sm:pb-24">
       <div className="wrap">
         <div className="mx-auto max-w-3xl text-center">
           <Headline id="faq-title" text={faq.title} className="section-title [&_br]:hidden" />
@@ -58,7 +58,7 @@ export function Faq() {
           <div className="card overflow-hidden">
             <div className="grid gap-3 p-4 sm:p-6">
               {faq.items.map((item, i) => (
-                <details key={item.q} open={i === 0} className="group rounded-2xl border border-line bg-white shadow-[0_8px_18px_rgba(8,27,52,0.05)]">
+                <details key={item.q} className="group rounded-2xl border border-line bg-white shadow-[0_8px_18px_rgba(8,27,52,0.05)] transition-colors open:border-alert/40">
                   <summary className="flex cursor-pointer list-none items-center gap-4 p-4 sm:p-5 [&::-webkit-details-marker]:hidden">
                     <span className="flex-1 text-[0.98rem] leading-snug font-bold">{item.q}</span>
                     <span

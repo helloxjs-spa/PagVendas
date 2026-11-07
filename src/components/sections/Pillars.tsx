@@ -13,7 +13,7 @@ import { HeroLedger } from "./Hero";
  */
 const cards = [
   { icon: ArrowUpRight, card: "bg-navy text-white", num: "text-sky", iconColor: "text-sky", body: "text-white/75" },
-  { icon: Plus, card: "bg-signal text-navy", num: "text-navy/70", iconColor: "text-navy", body: "text-navy/80" },
+  { icon: Plus, card: "bg-signal text-navy", num: "text-navy/70", iconColor: "text-alert", body: "text-navy/80" },
   { icon: CircleDot, card: "bg-white text-navy ring-1 ring-line ring-inset", num: "text-navy/60", iconColor: "text-navy", body: "text-navy/70" },
 ];
 

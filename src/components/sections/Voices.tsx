@@ -11,7 +11,7 @@ export function Voices() {
   if (!hasReal && !site.reviewMode) return null;
 
   return (
-    <section aria-labelledby="depoimentos-title" className="border-t border-line bg-white py-20 sm:py-24">
+    <section aria-labelledby="depoimentos-title" className="border-t border-line bg-white pt-12 pb-20 sm:pt-14 sm:pb-24">
       <div className="wrap">
         <SectionHead
           id="depoimentos-title"
@@ -23,7 +23,7 @@ export function Voices() {
             ? testimonialsList.map((t) => (
                 <li key={t.name} className="card p-7" data-reveal>
                   <figure>
-                    <Quote aria-hidden className="size-8 text-blue" />
+                    <Quote aria-hidden className="size-8 text-alert" />
                     {t.quote && <blockquote className="mt-3 text-[1.05rem] leading-relaxed text-ink/80">“{t.quote}”</blockquote>}
                     {t.video?.kind === "youtube" && (
                       <div className="relative mt-4 aspect-video overflow-hidden rounded-2xl">
@@ -54,7 +54,7 @@ export function Voices() {
               ))
             : testimonialSlots.map((s) => (
                 <li key={s.code} className="card flex items-center gap-4 p-6">
-                  <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-blue/10 text-blue">
+                  <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-alert/10 text-alert">
                     <Quote aria-hidden className="size-6" />
                   </span>
                   <span>

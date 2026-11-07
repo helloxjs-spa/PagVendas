@@ -2,7 +2,7 @@
 
 @theme {
   /* Marca EDASI */
-  /* Três cores: azul #081B34, amarelo #F5C451 e branco */
+  /* Azul #081B34, amarelo #F5C451 e branco + vermelho #D7263D como acento de urgência/emergência */
   --color-ink: #081b34; /* texto */
   --color-navy: #081b34; /* azul principal */
   --color-navy-700: #10284a; /* variação do azul para hover/profundidade */
@@ -14,6 +14,11 @@
   --color-signal: #f5c451; /* amarelo — botões principais */
   --color-signal-hover: #f7d06e;
   --color-sun: #f5c451;
+  --color-alert: #d7263d; /* vermelho — acentos pontuais (selo, prazo, cruz, marcadores). Contraste 5:1 no branco */
+  --color-alert-dark: #b51d31;
+  --color-whatsapp: #25d366; /* verde oficial do WhatsApp */
+  --color-whatsapp-hover: #1ebe5b;
+  --color-alert-bright: #ff1e2d; /* vermelho vivo para texto sobre fundo azul (contraste 4,5:1) */
 
   --breakpoint-xs: 26rem;
 
@@ -156,6 +161,13 @@
   .btn-blue:hover {
     @apply bg-navy-700;
   }
+  .btn-whatsapp {
+    @apply bg-whatsapp text-white;
+    box-shadow: 0 14px 28px rgba(18, 140, 74, 0.3);
+  }
+  .btn-whatsapp:hover {
+    @apply bg-whatsapp-hover;
+  }
   .btn-outline-dark {
     @apply border-2 border-navy text-navy;
   }
@@ -172,7 +184,7 @@
   /* Placa: fundo marinho com marcas de registro, usado enquanto a foto real não chega */
   .plate {
     background-color: var(--color-navy-700);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cpath d='M22 18v8M18 22h8' stroke='%23f5c451' stroke-opacity='.28' stroke-width='1'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cpath d='M22 18v8M18 22h8' stroke='%23d7263d' stroke-opacity='.55' stroke-width='1'/%3E%3C/svg%3E");
     background-size: 44px 44px;
   }
 }
@@ -235,6 +247,33 @@
     box-shadow:
       0 0 0 8px rgba(245, 196, 81, 0.18),
       0 18px 34px rgba(245, 196, 81, 0.45);
+  }
+}
+
+/* Ponto vermelho "ao vivo" (matrículas abertas) */
+.live-dot {
+  position: relative;
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: var(--color-alert);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .live-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--color-alert);
+    animation: live-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+@keyframes live-ping {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
   }
 }
 
