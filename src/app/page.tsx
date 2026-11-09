@@ -41,8 +41,8 @@ export default function Page() {
         <Marquee />
         <Schedule />
         <Marquee />
-        <Videos />
         <Voices />
+        <Videos />
         <LeadForm />
         <Gallery />
         <Faq />
