@@ -107,10 +107,30 @@ export const videos: VideoSlot[] = [
  * (selecionadas do Drive do cliente); são elas que fazem o convencimento da seção.
  */
 export const galleryPhotos: PhotoSlot[] = [
-  { code: "02", label: "Simulados realísticos", note: "Foto real de simulado com vítima e equipe.", photo: null },
-  { code: "03", label: "Vivência com ambulância", note: "Foto real de prática com maca ou ambulância.", photo: null },
-  { code: "04", label: "Módulo aquático", note: "Foto real do módulo de salvamento aquático.", photo: null },
-  { code: "05", label: "Formatura EDASI", note: "Foto real de formatura com alunos e certificados.", photo: null },
+  {
+    code: "02",
+    label: "Simulados realísticos",
+    note: "",
+    photo: { src: "/images/simulados.jpeg", alt: "Alunos de luvas atendem uma vítima deitada no chão durante simulado, acompanhados por uma instrutora", width: 1280, height: 854, focus: "45% 50%" },
+  },
+  {
+    code: "03",
+    label: "Vivência com ambulância",
+    note: "",
+    photo: { src: "/images/ambulancia.jpeg", alt: "Socorristas preparam a maca na porta traseira aberta de uma ambulância", width: 1280, height: 854, focus: "55% 50%" },
+  },
+  {
+    code: "04",
+    label: "Treino de RCP",
+    note: "",
+    photo: { src: "/images/aquatico.jpeg", alt: "Aluna faz compressões torácicas em manequim enquanto colega prepara o ressuscitador manual", width: 1280, height: 854, focus: "38% 50%" },
+  },
+  {
+    code: "05",
+    label: "Formatura EDASI",
+    note: "",
+    photo: { src: "/images/formaturaedasi.jpeg", alt: "Turma de formandos do Grupo EDASI, de uniforme, posa com os canudos dos certificados", width: 1280, height: 960, focus: "50% 75%" },
+  },
 ];
 
 export const testimonialSlots = [

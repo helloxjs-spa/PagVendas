@@ -24,7 +24,7 @@ export function Gallery() {
                   slot={slot}
                   sizes="(min-width: 1024px) 25vw, 50vw"
                   tag="none"
-                  className="aspect-[4/3] rounded-[16px] shadow-[0_8px_20px_rgba(0,0,0,0.12)] lg:aspect-[4/5]"
+                  className="aspect-[4/3] rounded-[16px] shadow-[0_8px_20px_rgba(0,0,0,0.12)]"
                 />
                 <figcaption className="mt-2.5 text-[0.95rem] font-semibold text-ink sm:text-[1.02rem]">{slot.label}</figcaption>
               </figure>
