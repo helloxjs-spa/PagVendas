@@ -58,7 +58,6 @@ export const hero = {
   ledger: [
     { kicker: "Carga horária", value: c.hours, note: `${c.duration} · ${c.frequency}` },
     { kicker: "Aulas", value: c.lessons, note: `Incluindo ${c.simulations} simulados` },
-    { kicker: "Módulo", value: "Aquático", note: "Salvamento aquático" },
     { kicker: `Matrícula até ${c.deadlineShort}`, value: c.boleto.value, note: `no boleto · ${c.card.value} no cartão` },
   ] as { kicker: string; value: string; note: string; unit?: string }[],
 };
@@ -78,25 +77,26 @@ export const methodology = {
 export const schedule = {
   eyebrow: "Duração e organização das aulas",
   title: "Quatro meses.|*Dois encontros por semana.*",
-  lead: "O curso de APH tem duração de quatro meses, com aulas duas vezes por semana.",
+  lead: "Você escolhe entre a turma da manhã e a turma noturna. Nas duas, são duas aulas por semana durante quatro meses.",
   cohorts: [
     { label: "Próxima turma", month: "xxxxx", year: "" },
     { label: "Turma seguinte", month: "Abril", year: "2027" },
   ],
+  shiftsTitle: "Escolha o seu turno",
   morning: {
     eyebrow: "Turma da manhã",
-    title: "Dias alternados|*a cada semana.*",
+    summary: "Os dias mudam a cada semana",
     weeks: [
-      { label: "Uma semana", days: "Segunda e quarta-feira", active: [0, 2] },
-      { label: "Na semana seguinte", days: "Terça e quinta-feira", active: [1, 3] },
+      { label: "1ª semana", days: "Segunda e quarta", active: [0, 2] },
+      { label: "2ª semana", days: "Terça e quinta", active: [1, 3] },
     ],
-    text: "Os dois pares de dias se alternam semanalmente. A equipe confirmará o calendário de referência de cada turma.",
+    text: "E assim por diante, alternando até o fim do curso. A equipe confirma o calendário de cada turma.",
   },
   night: {
     eyebrow: "Turma noturna",
-    title: "Terça e quinta-feira.|*Todas as semanas.*",
-    weeks: [{ label: "Todas as semanas", days: "Terça e quinta-feira", active: [1, 3] }],
-    text: "Dois encontros por semana, sempre às terças e quintas-feiras, durante os quatro meses de curso.",
+    summary: "Sempre os mesmos dias",
+    weeks: [{ label: "Toda semana", days: "Terça e quinta", active: [1, 3] }],
+    text: "Os mesmos dois dias, todas as semanas, durante os quatro meses de curso.",
   },
   weekdays: ["Seg", "Ter", "Qua", "Qui", "Sex"],
 };
@@ -195,12 +195,6 @@ export const faq = {
   ],
 };
 
-export const finalCta = {
-  eyebrow: "Curso APH · Grupo EDASI",
-  title: `Turmas de manhã e à noite.|*Valor sem reajuste até ${c.deadlineShort}.*`,
-  text: `Próximas turmas: ${c.nextCohort} e ${c.followingCohort}. São ${c.hours} de APH presencial em ${c.duration}. Para matrículas até ${c.deadline}: ${c.boleto.value} no boleto ou ${c.card.value} no cartão.`,
-};
-
 export const footer = {
   course: "Curso de Atendimento Pré-Hospitalar · APH 2027",
   place: "São Bernardo do Campo · SP",
@@ -221,47 +215,4 @@ export const leadForm = {
   note: `Matrícula até ${c.deadline}: ${c.boleto.value} no boleto ou ${c.card.value} no cartão.`,
   message: (d: { name: string; email: string; phone: string }) =>
     `Olá! Quero garantir minha vaga no curso APH 2027 do Grupo EDASI.\nNome: ${d.name}\nE-mail: ${d.email}\nWhatsApp: ${d.phone}`,
-};
-
-/** Outras formações — prioridades comerciais informadas pelo EDASI. */
-export const otherCourses = {
-  eyebrow: "Outras formações do Grupo EDASI",
-  title: "Encontre o formato|que cabe na *sua rotina.*",
-  lead: "Para quem mora mais longe ou precisa de mais flexibilidade, o EDASI também oferece formações híbridas, imersivas e a distância.",
-  items: [
-    {
-      name: "APH Híbrido",
-      tag: "Híbrido · 150h",
-      text: "Formação que combina atividades online e presenciais, oferecendo maior flexibilidade aos alunos.",
-      meta: "Próxima turma: primeira semana de dezembro",
-      photo: { src: "/images/fotos/curativo-imobilizacao.webp", alt: "Socorristas fazem curativo e imobilização no braço de uma vítima", width: 1156, height: 769 },
-    },
-    {
-      name: "Plantão 12 – APH",
-      tag: "Imersão · 12h",
-      text: "Experiência imersiva de 12 horas, com foco em simulações e situações reais do atendimento pré-hospitalar.",
-      meta: "Simulações e situações reais",
-      photo: { src: "/images/fotos/imobilizacao-prancha.webp", alt: "Socorrista imobiliza vítima com colar cervical em prancha rígida", width: 1000, height: 1000 },
-    },
-    {
-      name: "Suporte Básico de Vida (SBV)",
-      tag: "Turmas mensais",
-      text: "Capacitação voltada ao reconhecimento de emergências e às técnicas fundamentais de suporte à vida.",
-      meta: "Turmas uma vez por mês",
-      photo: { src: "/images/fotos/monitorizacao-ecg.webp", alt: "Socorristas monitoram vítima com eletrodos de eletrocardiograma", width: 768, height: 512 },
-    },
-    {
-      name: "Cursos EAD",
-      tag: "A distância",
-      text: "Atendimento Pré-Hospitalar (APH) e Condutor de Veículo de Emergência, ampliando o alcance para outras regiões do Brasil.",
-      meta: "APH · Condutor de Veículo de Emergência",
-      photo: { src: "/images/fotos/atendimento-ambulancia.webp", alt: "Equipe de socorristas atende paciente dentro da ambulância", width: 1300, height: 1953, focus: "50% 22%" },
-    },
-  ] as {
-    name: string;
-    tag: string;
-    text: string;
-    meta: string;
-    photo: { src: string; alt: string; width: number; height: number; focus?: string };
-  }[],
 };

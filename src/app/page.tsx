@@ -14,8 +14,6 @@ import { Gallery } from "@/components/sections/Gallery";
 import { Voices } from "@/components/sections/Voices";
 import { Offer } from "@/components/sections/Offer";
 import { Faq } from "@/components/sections/Faq";
-import { FinalBand } from "@/components/sections/FinalBand";
-import { Courses } from "@/components/sections/Courses";
 import { LeadForm } from "@/components/sections/LeadForm";
 
 export default function Page() {
@@ -42,13 +40,12 @@ export default function Page() {
         <Program />
         <Marquee />
         <Schedule />
+        <Marquee />
         <Videos />
         <Voices />
-        <Courses />
         <LeadForm />
         <Gallery />
         <Faq />
-        <FinalBand />
       </main>
 
       <Footer />

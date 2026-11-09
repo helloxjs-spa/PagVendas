@@ -1,4 +1,4 @@
-import { CalendarDays, Clock, ListChecks, Tag, Waves } from "lucide-react";
+import { CalendarDays, Clock, ListChecks, Tag } from "lucide-react";
 import { ctaLabels, hero } from "@/content/course";
 import { heroPhoto } from "@/content/media";
 import { Cta } from "../ui/Cta";
@@ -6,7 +6,7 @@ import { Frame } from "../ui/Frame";
 import { Headline } from "../ui/Headline";
 import { Seal } from "../ui/Seal";
 
-const ledgerIcons = [Clock, ListChecks, Waves, Tag];
+const ledgerIcons = [Clock, ListChecks, Tag];
 
 /** Capa: foto de tela cheia com camada azul, texto centralizado e cartão de dados sobreposto. */
 export function Hero() {
@@ -57,7 +57,7 @@ export function HeroLedger() {
     <div className="wrap relative z-10 -mt-20 sm:-mt-24">
       <div className="relative mx-auto max-w-6xl">
         <Seal className="absolute -top-9 -right-2 z-10 sm:-top-16 sm:-right-5 lg:-top-20" />
-        <dl className="card grid gap-px overflow-hidden border-t-4 !border-t-alert bg-line sm:grid-cols-2 lg:grid-cols-4" style={{ boxShadow: "var(--shadow-card)" }}>
+        <dl className="card grid gap-px overflow-hidden border-t-4 !border-t-alert bg-line sm:grid-cols-3" style={{ boxShadow: "var(--shadow-card)" }}>
           {hero.ledger.map((item, i) => {
             const Icon = ledgerIcons[i];
             return (

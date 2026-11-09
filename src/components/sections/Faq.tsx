@@ -16,7 +16,7 @@ export function Faq() {
     { icon: CalendarDays, label: "Próximas turmas", value: `${schedule.cohorts[0].month} e ${schedule.cohorts[1].month.toLowerCase()}/${schedule.cohorts[1].year}` },
     { icon: MapPin, label: "Local", value: `${site.address.city} · ${site.address.state}` },
     { icon: GraduationCap, label: "Carga horária", value: "240 horas" },
-    { icon: ListChecks, label: "Aulas", value: "30, incluindo 2 simulados" },
+    { icon: ListChecks, label: "Aulas", value: "30" },
   ];
 
   return (

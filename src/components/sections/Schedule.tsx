@@ -1,19 +1,66 @@
-import { CalendarCheck2, CalendarClock, Moon, Sun } from "lucide-react";
+import { CalendarCheck2, CalendarClock, Moon, Sun, type LucideIcon } from "lucide-react";
 import { schedule } from "@/content/course";
 import { Headline } from "../ui/Headline";
 
+type Shift = (typeof schedule)["morning"] | (typeof schedule)["night"];
+
+/** Dias da semana como etiquetas: o dia de aula fica preenchido, os outros apagados. */
+function DayChips({ active }: { active: number[] }) {
+  return (
+    <span aria-hidden className="flex gap-1.5">
+      {schedule.weekdays.map((d, i) => {
+        const on = active.includes(i);
+        return (
+          <span
+            key={d}
+            className={`flex h-9 w-10 items-center justify-center rounded-lg text-[0.72rem] font-bold tracking-[0.04em] uppercase sm:w-12 ${
+              on ? "bg-navy text-white shadow-[0_6px_14px_rgba(8,27,52,0.25)]" : "bg-mist text-ink/30 ring-1 ring-line ring-inset"
+            }`}
+          >
+            {d}
+          </span>
+        );
+      })}
+    </span>
+  );
+}
+
+/** Um cartão por turno: nome, resumo e os dias de aula escritos por extenso. */
+function ShiftCard({ shift, icon: Icon }: { shift: Shift; icon: LucideIcon }) {
+  return (
+    <article data-tone="light" className="card p-5 sm:p-6">
+      <header className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-signal text-ink">
+          <Icon aria-hidden className="size-5" />
+        </span>
+        <h3 className="text-[1.2rem] font-extrabold text-ink">{shift.eyebrow}</h3>
+        <span className="rounded-full bg-mist px-3 py-1 text-[0.72rem] font-bold tracking-[0.04em] text-ink/70 uppercase ring-1 ring-line ring-inset">
+          {shift.summary}
+        </span>
+      </header>
+
+      <ul className="mt-4 divide-y divide-line border-y border-line">
+        {shift.weeks.map((w) => (
+          <li key={w.label} className="flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+            <span>
+              <span className="block text-[0.7rem] font-bold tracking-[0.05em] text-ink/50 uppercase">{w.label}</span>
+              <span className="block text-[1.05rem] font-bold text-ink">{w.days}</span>
+            </span>
+            <DayChips active={w.active} />
+          </li>
+        ))}
+      </ul>
+
+      <p className="mt-3 text-[0.86rem] leading-snug text-ink/65">{shift.text}</p>
+    </article>
+  );
+}
+
 /**
- * Turmas: título + datas das turmas à esquerda e quadro de horários (tabela real) à direita.
- * No celular, tudo empilha em versão compacta.
+ * Turmas: título + datas das turmas à esquerda e um cartão por turno à direita,
+ * com os dias de aula escritos por extenso. No celular, tudo empilha.
  */
 export function Schedule() {
-  const { morning, night, weekdays } = schedule;
-  const rows = [
-    { group: morning.eyebrow, ...morning.weeks[0] },
-    { group: morning.eyebrow, ...morning.weeks[1] },
-    { group: night.eyebrow, ...night.weeks[0] },
-  ];
-
   return (
     <section id="turmas" aria-labelledby="turmas-title" data-tone="yellow" className="bg-signal py-16 sm:py-20">
       <div className="wrap grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
@@ -52,68 +99,15 @@ export function Schedule() {
           </dl>
         </div>
 
-        {/* Quadro de horários */}
-        <div data-tone="light" className="card p-4 sm:p-6">
-          <table className="w-full border-collapse text-left">
-            <caption className="sr-only">Dias de aula de cada turma</caption>
-            <thead>
-              <tr className="text-[0.62rem] font-bold tracking-[0.05em] text-ink/50 uppercase sm:text-[0.7rem]">
-                <th scope="col" className="pb-2">
-                  <span className="sr-only">Turma</span>
-                </th>
-                {weekdays.map((d) => (
-                  <th key={d} scope="col" className="w-[11%] pb-2 text-center">
-                    {d}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => {
-                const Icon = r.group === night.eyebrow ? Moon : Sun;
-                return (
-                  <tr key={r.group + r.label} className="border-t border-line">
-                    <th scope="row" className="py-3 pr-3 align-middle font-normal">
-                      <span className="flex items-center gap-2 text-[0.92rem] font-bold sm:text-[0.98rem]">
-                        <Icon aria-hidden className="hidden size-4 shrink-0 text-blue sm:block" />
-                        {r.group}
-                      </span>
-                      <span className="block text-[0.76rem] text-ink/55">{r.label}</span>
-                    </th>
-                    {weekdays.map((d, i) => {
-                      const on = r.active.includes(i);
-                      return (
-                        <td key={d} className="py-3 text-center align-middle">
-                          <span
-                            className={`inline-block size-6 rounded-md align-middle sm:size-8 sm:rounded-lg ${
-                              on ? "bg-navy shadow-[0_6px_14px_rgba(8,27,52,0.3)]" : "bg-mist ring-1 ring-line ring-inset"
-                            }`}
-                          >
-                            <span className="sr-only">{on ? "aula" : "sem aula"}</span>
-                          </span>
-                        </td>
-                      );
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-
-          {/* Observações curtas */}
-          <ul className="mt-3 grid gap-2 border-t border-line pt-4 text-[0.84rem] leading-snug text-ink/65 sm:grid-cols-2 sm:gap-4">
-            {[
-              { icon: Sun, t: morning },
-              { icon: Moon, t: night },
-            ].map(({ icon: Icon, t }) => (
-              <li key={t.eyebrow} className="flex gap-2">
-                <Icon aria-hidden className="mt-0.5 size-4 shrink-0 text-alert" />
-                <span>
-                  <strong className="text-ink">{t.eyebrow}:</strong> {t.text}
-                </span>
-              </li>
-            ))}
-          </ul>
+        {/* Turnos */}
+        <div>
+          <p className="mb-3 text-center text-[0.78rem] font-extrabold tracking-[0.12em] text-ink/70 uppercase lg:text-left">
+            {schedule.shiftsTitle}
+          </p>
+          <div className="grid gap-4">
+            <ShiftCard shift={schedule.morning} icon={Sun} />
+            <ShiftCard shift={schedule.night} icon={Moon} />
+          </div>
         </div>
       </div>
     </section>
