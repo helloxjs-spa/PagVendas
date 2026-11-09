@@ -43,8 +43,8 @@ export default function Page() {
         <Marquee />
         <Voices />
         <Videos />
-        <LeadForm />
         <Gallery />
+        <LeadForm />
         <Faq />
       </main>
 
