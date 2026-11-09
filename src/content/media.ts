@@ -102,14 +102,15 @@ export const videos: VideoSlot[] = [
   { title: "APH 360°: equipe e passagem de casos", note: "", video: null },
 ];
 
-/** As 4 primeiras vêm da página original; "Estrutura" e "Instrutores" foram sugeridas no briefing. */
+/**
+ * Seção 3 — "Aqui você aprende vivendo a experiência". Quatro fotos REAIS do EDASI
+ * (selecionadas do Drive do cliente); são elas que fazem o convencimento da seção.
+ */
 export const galleryPhotos: PhotoSlot[] = [
-  { code: "02", shape: "portrait", label: "Atividade prática", note: "Substituir por imagem real autorizada de aula prática.", photo: null },
-  { code: "03", shape: "landscape", label: "Simulado em equipe", note: "Substituir por imagem real autorizada de simulado.", photo: null },
-  { code: "04", shape: "square", label: "Comunicação por rádio", note: "Substituir por imagem real autorizada.", photo: null },
-  { code: "05", shape: "landscape", label: "Salvamento aquático", note: "Substituir por imagem real autorizada do módulo.", photo: null },
-  { code: "06", shape: "portrait", label: "Estrutura do Grupo EDASI", note: "Sugestão do briefing: espaço de aulas e equipamentos.", photo: null },
-  { code: "07", shape: "landscape", label: "Instrutores", note: "Sugestão do briefing: equipe de instrutores em atividade.", photo: null },
+  { code: "02", label: "Simulados realísticos", note: "Foto real de simulado com vítima e equipe.", photo: null },
+  { code: "03", label: "Vivência com ambulância", note: "Foto real de prática com maca ou ambulância.", photo: null },
+  { code: "04", label: "Módulo aquático", note: "Foto real do módulo de salvamento aquático.", photo: null },
+  { code: "05", label: "Formatura EDASI", note: "Foto real de formatura com alunos e certificados.", photo: null },
 ];
 
 export const testimonialSlots = [

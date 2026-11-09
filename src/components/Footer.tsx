@@ -4,47 +4,44 @@ import { footer } from "@/content/course";
 import { mapsHref, site, whatsappHref } from "@/content/site";
 import { WhatsAppGlyph } from "./ui/WhatsAppGlyph";
 
-type NavItem = { href: string; label: string };
-
-export function Footer({ items }: { items: NavItem[] }) {
+/** Rodapé compacto: marca + contato numa faixa, e linha final com direitos e "voltar ao topo". */
+export function Footer() {
   const year = new Date().getFullYear();
   const wa = whatsappHref();
   const a = site.address;
 
   return (
     <footer data-tone="dark" className="bg-navy text-white">
-      <div className="wrap grid gap-10 py-14 md:grid-cols-[1.1fr_1.3fr_0.8fr]">
-        <div>
-          <span className="inline-block rounded-2xl bg-white px-5 py-3">
+      <div className="wrap grid gap-7 py-9 text-[0.9rem] md:grid-cols-[1fr_1.4fr] md:items-center md:gap-10">
+        <div className="flex items-center gap-4">
+          <span className="inline-block shrink-0 rounded-xl bg-white px-3.5 py-2">
             {/* Logo original sobre fundo branco (a marca é azul-marinho) */}
-            <Image src="/images/logo-grupo-edasi.png" alt="Grupo EDASI — Educação, Segurança e Inovação em Saúde" width={1003} height={472} className="h-12 w-auto" />
+            <Image src="/images/logo-grupo-edasi.png" alt="Grupo EDASI — Educação, Segurança e Inovação em Saúde" width={1003} height={472} className="h-9 w-auto" />
           </span>
-          <p className="mt-5 text-white/80">{footer.course}</p>
-          <p className="mt-1 text-[0.9rem] text-white/60">Educação, Segurança e Inovação em Saúde</p>
-          <p className="mt-4 text-[1rem] font-bold text-sky">{site.slogan}</p>
+          <div className="leading-snug">
+            <p className="text-white/80">{footer.course}</p>
+            <p className="mt-0.5 font-semibold text-sky">{site.slogan}</p>
+          </div>
         </div>
 
         <address className="not-italic">
-          <p className="text-[1.1rem] font-bold">Entre em contato</p>
-          <ul className="mt-4 grid gap-4 text-white/85">
-            <li className="flex gap-3">
-              <MapPin aria-hidden className="mt-0.5 size-5 shrink-0 text-sky" />
+          <ul className="grid gap-2.5 text-white/85 sm:grid-cols-2 sm:gap-x-6">
+            <li className="flex gap-2.5 sm:col-span-2">
+              <MapPin aria-hidden className="mt-0.5 size-4 shrink-0 text-sky" />
               <a href={mapsHref()} target="_blank" rel="noopener noreferrer" className="hover:text-white">
-                {a.street} — {a.district}
-                <br />
-                {a.city} · {a.state} · CEP {a.postalCode}
-                <span className="mt-1 block text-[0.85rem] font-semibold text-sky underline underline-offset-4">Ver no mapa</span>
+                {a.street} — {a.district}, {a.city} · {a.state} · CEP {a.postalCode}{" "}
+                <span className="font-semibold whitespace-nowrap text-sky underline underline-offset-4">Ver no mapa</span>
               </a>
             </li>
-            <li className="flex items-center gap-3">
-              <Phone aria-hidden className="size-5 shrink-0 text-sky" />
+            <li className="flex items-center gap-2.5">
+              <Phone aria-hidden className="size-4 shrink-0 text-sky" />
               <a href={`tel:${site.phone.tel}`} className="font-semibold hover:text-white">
                 {site.phone.display}
               </a>
             </li>
             {wa && (
-              <li className="flex items-center gap-3">
-                <WhatsAppGlyph className="size-5 shrink-0 text-sky" />
+              <li className="flex items-center gap-2.5">
+                <WhatsAppGlyph className="size-4 shrink-0 text-sky" />
                 <a href={wa} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-white">
                   Conversar pelo WhatsApp
                 </a>
@@ -52,37 +49,16 @@ export function Footer({ items }: { items: NavItem[] }) {
             )}
           </ul>
         </address>
-
-        <nav aria-label="Rodapé">
-          <p className="text-[1.1rem] font-bold">Navegação</p>
-          <ul className="mt-4 grid gap-2.5 text-white/80">
-            {items.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className="hover:text-white">
-                  {item.label}
-                </a>
-              </li>
-            ))}
-            <li>
-              <a href="#perguntas" className="hover:text-white">
-                Perguntas frequentes
-              </a>
-            </li>
-            <li>
-              <a href="#inicio" className="inline-flex items-center gap-1.5 font-semibold text-white">
-                Voltar ao topo <ArrowUp aria-hidden className="size-4" />
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
 
-      <div className="border-t border-white/10 py-5 text-center text-[0.82rem] text-white/60">
-        <div className="wrap flex flex-col gap-1 sm:flex-row sm:justify-between">
+      <div className="border-t border-white/10 py-4 text-[0.78rem] text-white/60">
+        <div className="wrap flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <span>
-            © {year} {site.name}.
+            © {year} {site.name}. {footer.disclaimer}
           </span>
-          <span>{footer.disclaimer}</span>
+          <a href="#inicio" className="inline-flex items-center gap-1 font-semibold text-white/85 hover:text-white">
+            Voltar ao topo <ArrowUp aria-hidden className="size-3.5" />
+          </a>
         </div>
       </div>
     </footer>

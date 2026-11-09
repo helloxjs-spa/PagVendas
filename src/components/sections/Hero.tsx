@@ -18,15 +18,15 @@ export function Hero() {
           {heroPhoto.photo && <div className="absolute inset-0 bg-[linear-gradient(rgba(8,27,52,0.84),rgba(8,27,52,0.74))]" />}
         </div>
 
-        <div className="wrap flex flex-col items-center pt-24 pb-36 text-center sm:pt-32 sm:pb-44 lg:pt-36">
-          <p className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[0.78rem] font-semibold tracking-[0.02em] text-white/90 backdrop-blur-sm">
+        <div className="wrap flex flex-col items-center pt-24 pb-32 text-center sm:pt-28 sm:pb-32 lg:pt-32">
+          <p className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[0.78rem] font-semibold tracking-[0.02em] text-white/90 backdrop-blur-sm">
             <span aria-hidden className="live-dot" />
             {hero.eyebrow}
           </p>
-          <Headline as="h1" id="hero-title" text={hero.title} className="max-w-4xl text-[clamp(2.3rem,1.2rem+4.4vw,4.6rem)] leading-[1.05] [&_em]:text-alert-bright [&_br]:hidden sm:[&_br]:block" />
-          <p className="mt-6 max-w-2xl text-[1.02rem] leading-relaxed text-white/85 sm:text-[1.1rem]">{hero.intro}</p>
+          <Headline as="h1" id="hero-title" text={hero.title} className="max-w-6xl text-[clamp(1.75rem,1.05rem+3vw,3.4rem)] leading-[1.08] [&_em]:text-alert-bright [&_br]:hidden sm:[&_br]:block" />
+          <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-white/85 sm:text-[1.1rem]">{hero.intro}</p>
 
-          <div className="mt-9 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
+          <div className="mt-7 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
             <Cta kind="registration" className="w-full sm:w-auto">
               {ctaLabels.registration}
             </Cta>
@@ -35,10 +35,10 @@ export function Hero() {
             </Cta>
           </div>
 
-          <p className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[0.92rem] text-white/80">
+          <p className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[0.92rem] text-white/80">
             <CalendarDays aria-hidden className="size-4 text-sky" />
             <strong className="font-semibold text-white">{hero.factsStrong}</strong>
-            <span aria-hidden>·</span>
+            <span aria-hidden className="max-sm:hidden">·</span>
             <span>{hero.factsText}</span>
           </p>
         </div>
@@ -48,15 +48,15 @@ export function Hero() {
 }
 
 /**
- * Cartão de dados sobreposto à borda inferior da capa + link para os dias das aulas.
+ * Cartão de dados sobreposto à borda inferior da capa.
  * Renderizado no topo da seção seguinte (Pillars), para que esta faixa acompanhe
  * a troca de cor de fundo daquela seção.
  */
 export function HeroLedger() {
   return (
-    <div className="wrap relative z-10 -mt-24 sm:-mt-28">
+    <div className="wrap relative z-10 -mt-20 sm:-mt-24">
       <div className="relative mx-auto max-w-6xl">
-        <Seal className="absolute -top-14 -right-2 z-10 sm:-top-16 sm:-right-5 lg:-top-20" />
+        <Seal className="absolute -top-9 -right-2 z-10 sm:-top-16 sm:-right-5 lg:-top-20" />
         <dl className="card grid gap-px overflow-hidden border-t-4 !border-t-alert bg-line sm:grid-cols-2 lg:grid-cols-4" style={{ boxShadow: "var(--shadow-card)" }}>
           {hero.ledger.map((item, i) => {
             const Icon = ledgerIcons[i];
@@ -80,11 +80,6 @@ export function HeroLedger() {
           })}
         </dl>
       </div>
-      <p className="mt-6 text-center">
-        <a href="#turmas" className="text-[0.92rem] font-semibold text-current underline decoration-current/30 underline-offset-[6px] hover:decoration-current">
-          {hero.factsLink} ↓
-        </a>
-      </p>
     </div>
   );
 }

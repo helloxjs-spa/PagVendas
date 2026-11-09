@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { ctaLabels } from "@/content/course";
+import { commercial, ctaLabels } from "@/content/course";
 import { pendingMessage, registrationHref, site, whatsappHref } from "@/content/site";
 import { showToast } from "./ui/Toaster";
 import { WhatsAppGlyph } from "./ui/WhatsAppGlyph";
@@ -37,7 +37,7 @@ export function StickyActions() {
 
   useEffect(() => {
     const hero = document.getElementById("inicio");
-    const blockers = ["investimento", "contato"]
+    const blockers = ["investimento", "inscricao", "contato"]
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
     const visible = new Set<Element>();
@@ -67,8 +67,8 @@ export function StickyActions() {
       >
         <div className="flex items-center gap-2 px-3 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           <div className="min-w-0 flex-1 pl-1">
-            <span className="block text-[0.65rem] font-semibold whitespace-nowrap text-white/60">Até 31/12/2026</span>
-            <span className="block text-[1.1rem] leading-none font-extrabold whitespace-nowrap xs:text-[1.3rem]">R$ 1.400</span>
+            <span className="block text-[0.65rem] font-semibold whitespace-nowrap text-white/60">Até {commercial.deadline}</span>
+            <span className="block text-[1.1rem] leading-none font-extrabold whitespace-nowrap xs:text-[1.3rem]">{commercial.boleto.value}</span>
           </div>
           <Action href={reg} className="btn btn-signal !min-h-12 !gap-2 !px-3 !text-[0.72rem] xs:!px-4 xs:!text-[0.8rem]">
             {ctaLabels.registrationShort}

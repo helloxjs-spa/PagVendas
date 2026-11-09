@@ -10,7 +10,7 @@ export const site = {
   name: "Grupo EDASI",
   title: "APH 2027 | Grupo EDASI",
   description:
-    "Curso de Atendimento Pré-Hospitalar APH 2027 do Grupo EDASI: técnicas e protocolos de urgência e emergência, aulas práticas e simulados, com capacitação 360° integrada ao percurso.",
+    "Curso de Atendimento Pré-Hospitalar APH 2027 do Grupo EDASI: técnicas e protocolos de urgência e emergência, aulas práticas e simulados, com a metodologia de ensino APH 360° do Grupo EDASI.",
 
   /**
    * Domínio final da página (canonical e Open Graph). Defina NEXT_PUBLIC_SITE_URL no

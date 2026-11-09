@@ -6,81 +6,72 @@
  *   *texto*  → trecho em destaque (serifada itálica)
  */
 
+/**
+ * DADOS COMERCIAIS — fonte única. Preço, prazo, carga horária e turmas aparecem em
+ * várias seções (capa, faixa, investimento, FAQ, barra fixa do celular, imagem de
+ * compartilhamento). Altere aqui e todas acompanham.
+ */
+export const commercial = {
+  hours: "240h",
+  duration: "4 meses",
+  frequency: "2 vezes por semana",
+  lessons: "30",
+  simulations: "2",
+  /** Próximas turmas — "xxxxx" até o EDASI confirmar a data. */
+  nextCohort: "xxxxx",
+  followingCohort: "abril/2027",
+  deadline: "31/12/2026",
+  deadlineShort: "31/12",
+  boleto: { value: "R$ 1.400", installments: "em até 4x" },
+  card: { value: "R$ 1.200", discount: "R$ 200 de desconto", installments: "em até 6x" },
+  from2027: {
+    card: { value: "R$ 1.850", installments: "em até 10x" },
+    boleto: { value: "R$ 2.100", installments: "em até 5x" },
+  },
+};
+
+const c = commercial;
+
 export const ctaLabels = {
-  registration: "Já quero realizar minha inscrição",
-  whatsapp: "Ainda tenho dúvidas, quero falar com a equipe",
+  registration: "Quero garantir minha vaga",
+  whatsapp: "Tirar dúvidas no WhatsApp",
   /** Versão curta usada apenas em espaços reduzidos (barra fixa no celular). */
   registrationShort: "Fazer inscrição",
 };
 
 export const nav = [
-  { href: "#programa", label: "O curso APH" },
+  { href: "#programa", label: "Metodologia 360°" },
+  { href: "#conteudos", label: "O que você aprende" },
   { href: "#turmas", label: "Turmas e dias" },
   { href: "#conteudos-visuais", label: "Veja por dentro", requires: "videos" as const },
-  { href: "#cursos", label: "Outros cursos" },
   { href: "#investimento", label: "Investimento" },
 ];
 
 export const hero = {
-  eyebrow: "Curso de Atendimento Pré-Hospitalar · Grupo EDASI",
-  title: "Na hora da emergência,|*você age ou trava?*",
+  eyebrow: "Formação em Atendimento Pré-Hospitalar · Grupo EDASI",
+  title: "Na emergência, não basta|conhecer a técnica.|*É preciso saber aplicá-la.*",
   intro:
-    "Aperfeiçoe seus conhecimentos em técnicas e protocolos de urgência e emergência com aulas práticas e simulados de APH. Ao longo do curso, a proposta 360° integra comunicação, trabalho em equipe e postura ética à formação técnica — respeitando protocolos e as atribuições de cada função.",
-  factsStrong: "4 meses · 2 vezes por semana",
-  factsText: "Turmas de manhã e à noite · Próximas turmas: xxxxx e abril/2027.",
-  factsLink: "Veja os dias das aulas",
+    "Uma formação que conecta conhecimento técnico, prática realística, comunicação e desenvolvimento profissional por meio da metodologia APH 360° do Grupo EDASI.",
+  factsStrong: `${c.hours.replace("h", " horas")} · Aulas presenciais · Simulados realísticos`,
+  factsText: `Próximas turmas: ${c.nextCohort} e ${c.followingCohort}.`,
   stamp: { year: "2027", label: "APH" },
   ledger: [
-    { kicker: "Carga horária", value: "240h", note: "4 meses · 2 vezes por semana" },
-    { kicker: "Aulas", value: "30", note: "Incluindo 2 simulados" },
+    { kicker: "Carga horária", value: c.hours, note: `${c.duration} · ${c.frequency}` },
+    { kicker: "Aulas", value: c.lessons, note: `Incluindo ${c.simulations} simulados` },
     { kicker: "Módulo", value: "Aquático", note: "Salvamento aquático" },
-    { kicker: "Matrícula até 31/12", value: "R$ 1.400", note: "Sem reajuste" },
+    { kicker: `Matrícula até ${c.deadlineShort}`, value: c.boleto.value, note: `no boleto · ${c.card.value} no cartão` },
   ] as { kicker: string; value: string; note: string; unit?: string }[],
 };
 
-export const priceBand = [
-  "Curso APH · Turma 2027",
-  "R$ 1.400 até 31/12/2026",
-  "Economia de R$ 450",
-  "24,3% em relação ao valor regular",
-];
-
-export const presentation = {
-  eyebrow: "Aperfeiçoamento em Atendimento Pré-Hospitalar",
-  title: "Técnicas e protocolos.|*Prática com contexto.*",
-  lead: "O ponto de partida é o APH: estudar fundamentos, aprofundar conhecimentos e exercitar a aplicação de técnicas e protocolos em cenários de urgência e emergência.",
+/** Seção 2 — metodologia APH 360° em quatro pilares (uma competência por pilar). */
+export const methodology = {
+  title: "Por que o APH EDASI|*é diferente?*",
+  lead: "Ensinamos com a metodologia APH 360°. Cada pilar é uma competência que você desenvolve ao longo do curso.",
   pillars: [
-    {
-      title: "Aprofundar a base técnica",
-      text: "Revisar fundamentos e compreender a lógica das técnicas e dos protocolos para organizar o raciocínio no atendimento pré-hospitalar.",
-    },
-    {
-      title: "Levar o conteúdo à prática",
-      text: "Aulas práticas e simulados para exercitar leitura de cenário, sequência de atendimento e tomada de decisão em ambiente de aprendizagem.",
-    },
-    {
-      title: "Ampliar o repertório de APH",
-      text: "Módulo aquático e animais peçonhentos entre os temas previstos para discutir particularidades de diferentes cenários e reconhecer riscos.",
-    },
-  ],
-};
-
-export const method = {
-  eyebrow: "Formação teórico-prática em APH",
-  title: "Estudar a técnica.|*Exercitar sua aplicação.*",
-  steps: [
-    {
-      title: "Compreender",
-      text: "Estudar fundamentos, técnicas e protocolos de urgência e emergência, relacionando o conteúdo aos cenários de APH.",
-    },
-    {
-      title: "Praticar",
-      text: "Exercitar procedimentos e organização do atendimento em aulas práticas e simulados, integrando decisão, comunicação e equipe.",
-    },
-    {
-      title: "Revisar as escolhas",
-      text: "Refletir sobre raciocínio, execução técnica e postura durante as atividades para consolidar o aprendizado.",
-    },
+    { title: "Domínio técnico", text: "Protocolos, avaliação de vítimas e fundamentos do APH." },
+    { title: "Vivência operacional", text: "Práticas, equipamentos, ambulância e cenários simulados." },
+    { title: "Desenvolvimento humano", text: "Comunicação, oratória, postura e trabalho em equipe." },
+    { title: "Consciência profissional", text: "Ética, compliance, sigilo e inovação na saúde." },
   ],
 };
 
@@ -110,79 +101,17 @@ export const schedule = {
   weekdays: ["Seg", "Ter", "Qua", "Qui", "Sex"],
 };
 
+/** Seção 4 — grandes grupos de conteúdo (não é grade curricular). */
 export const curriculum = {
-  eyebrow: "Programa previsto do curso APH",
-  title: "Do fundamento|ao *simulado.*",
-  intro:
-    "Técnicas e protocolos de urgência e emergência como base, com prática orientada e temas para ampliar o repertório de APH.",
-  /** is360: itens que o próprio texto associa às dimensões da capacitação 360°. */
+  title: "O que você|*vai aprender?*",
+  lead: `${c.hours} organizadas em cinco grandes grupos de conteúdo.`,
   items: [
-    {
-      title: "Fundamentos, técnicas e protocolos de APH",
-      text: "Estudar a lógica do atendimento pré-hospitalar e a organização de condutas em urgência e emergência.",
-    },
-    {
-      title: "Aulas práticas e simulados",
-      text: "Exercitar a aplicação do conteúdo, leitura de cenário, sequência e tomada de decisão em atividades orientadas.",
-    },
-    {
-      title: "Módulo de salvamento aquático",
-      text: "Vivência temática para discutir particularidades, riscos e cuidados relacionados ao cenário aquático.",
-    },
-    {
-      title: "Animais peçonhentos",
-      text: "Tema previsto para ampliar o reconhecimento de riscos e o repertório de situações abordadas no APH.",
-    },
-    {
-      title: "Comunicação, oratória e passagem de casos",
-      text: "Como parte do percurso 360°, praticar a transmissão clara das informações sobre o atendimento e as condutas realizadas.",
-      is360: true,
-    },
-    {
-      title: "Trabalho em equipe e comunicação por rádio",
-      text: "Integrar a prática técnica à coordenação, escuta e troca de informações em atividades em grupo.",
-      is360: true,
-    },
-    {
-      title: "Ética, compliance e cuidado com dados",
-      text: "Refletir sobre postura, sigilo e responsabilidade no cuidado de informações de saúde.",
-      is360: true,
-    },
-    {
-      title: "Inovação e transformações digitais em saúde",
-      text: "Um olhar introdutório sobre tendências tecnológicas, incluindo inteligência artificial.",
-      is360: true,
-    },
-    {
-      title: "Formatura",
-      text: "Momento de encerramento previsto, sujeito à confirmação do formato institucional.",
-    },
-  ] as { title: string; text: string; is360?: boolean }[],
-};
-
-export const aph360 = {
-  statement: "Você sabe a técnica.|*Mas consegue conduzir a cena?*",
-  statementNote:
-    "A proposta 360° se soma à formação técnica em APH, sem substituir seu foco. Não é promessa de habilitação profissional, emprego ou resultado individual.",
-  eyebrow: "O diferencial integrado ao curso: APH 360°",
-  title: "Base técnica.|*Visão mais ampla.*",
-  body: "Durante o curso de APH, comunicação, trabalho em equipe e postura ética entram como dimensões do atendimento, junto ao raciocínio e à execução técnica. A proposta também aborda sigilo e cuidado com dados de saúde, inovação e transformação digital.",
-  /** Dimensões citadas no texto acima, usadas no diagrama. */
-  dimensions: [
-    "Raciocínio e execução técnica",
-    "Comunicação",
-    "Trabalho em equipe",
-    "Postura ética",
-    "Sigilo e cuidado com dados de saúde",
-    "Inovação e transformação digital",
+    "Emergências clínicas, SBV e reanimação",
+    "Trauma, imobilizações e remoção",
+    "Emergências pediátricas e situações especiais",
+    "Módulo aquático e animais peçonhentos",
+    "Comunicação operacional, ética e inovação",
   ],
-  change: {
-    label: "O que mudou no APH do EDASI",
-    text: "Durante anos, o APH do EDASI teve foco no desenvolvimento das habilidades técnicas. Com o tempo, percebemos que os alunos também precisavam de habilidades comportamentais e de conhecimento nas disciplinas que o mercado passou a pedir. O novo APH mantém o foco na técnica e traz uma visão 360°, com disciplinas de desenvolvimento comportamental e inovação em saúde.",
-  },
-  complementLabel: "Fora do curso de APH",
-  complement:
-    "Fora do curso de APH, o Grupo também informa disponibilizar, em separado e de forma opcional, capacitações como inteligência emocional, marketing pessoal, gestão financeira e empreendedorismo. Consulte disponibilidade, valores e condições; elas não estão incluídas no valor do APH apresentado nesta página.",
 };
 
 export const experience = {
@@ -190,9 +119,10 @@ export const experience = {
   title: "APH na prática.|*O percurso em vídeo.*",
 };
 
+/** Seção 3 — vivências em fotos reais (ver galleryPhotos em media.ts). */
 export const gallery = {
-  eyebrow: "Galeria de vivências",
-  title: "Registros das|*aulas práticas.*",
+  title: "Aqui você aprende|*vivendo a experiência.*",
+  lead: "Simulados, ambulância, piscina e formatura: o curso acontece na prática.",
 };
 
 export const testimonials = {
@@ -203,22 +133,22 @@ export const testimonials = {
 export const investment = {
   eyebrow: "Matrículas abertas",
   title: "Seu próximo passo|no *aperfeiçoamento em APH.*",
-  text: "Curso de Atendimento Pré-Hospitalar do Grupo EDASI: técnicas, protocolos, aulas práticas e simulados, com a proposta 360° integrada ao percurso.",
-  cohortNote: "Quem se matricula até 31/12/2026 garante o valor atual, sem reajuste.",
-  deadline: { strong: "Válida até 31/12/2026", text: "Após essa data, passam a valer os valores de 2027." },
+  text: "Curso de Atendimento Pré-Hospitalar do Grupo EDASI: técnicas, protocolos, aulas práticas e simulados, com a metodologia de ensino APH 360°.",
+  cohortNote: `Quem se matricula até ${c.deadline} garante o valor atual, sem reajuste.`,
+  deadline: { strong: `Válida até ${c.deadline}`, text: "Após essa data, passam a valer os valores de 2027." },
   card: {
-    tag: "APH Presencial · 240h",
-    condition: "Matrícula até 31/12/2026",
+    tag: `APH Presencial · ${c.hours}`,
+    condition: `Matrícula até ${c.deadline}`,
     currency: "R$",
-    price: "1.400",
-    priceNote: "no boleto, em até 4x",
-    card: { label: "No cartão de crédito", value: "R$ 1.200", note: "R$ 200 de desconto, em até 6x" },
-    seal: { top: "Sem", bottom: "reajuste até 31/12" },
+    price: c.boleto.value.replace(/^R\$\s*/, ""),
+    priceNote: `no boleto, ${c.boleto.installments}`,
+    card: { label: "No cartão de crédito", value: c.card.value, note: `${c.card.discount}, ${c.card.installments}` },
+    seal: { top: "Sem", bottom: `reajuste até ${c.deadlineShort}` },
     future: {
       label: "A partir de 2027",
       rows: [
-        { method: "Cartão de crédito", value: "R$ 1.850", note: "em até 10x" },
-        { method: "Boleto", value: "R$ 2.100", note: "em até 5x" },
+        { method: "Cartão de crédito", value: c.from2027.card.value, note: c.from2027.card.installments },
+        { method: "Boleto", value: c.from2027.boleto.value, note: c.from2027.boleto.installments },
       ],
     },
   },
@@ -231,18 +161,16 @@ export const faq = {
   items: [
     {
       q: "O foco do curso é Atendimento Pré-Hospitalar?",
-      a: "Sim. A proposta tem como base o estudo e o aperfeiçoamento em técnicas e protocolos de urgência e emergência, com aulas práticas e simulados de APH. Ao longo desse percurso, são integradas as dimensões da capacitação 360°.",
+      a: `Sim. O curso é dedicado a técnicas e protocolos de urgência e emergência, com ${c.lessons} aulas e ${c.simulations} simulados de APH.`,
     },
     {
-      q: "O que a capacitação 360° acrescenta ao APH?",
-      a: "Ela amplia o olhar sobre o atendimento ao integrar comunicação, trabalho em equipe, postura, ética, cuidado com dados e inovação em saúde à formação técnica. Não substitui o foco em APH, não é um curso de comunicação separado nem uma alegação de exclusividade no mercado.",
+      q: "O que é a metodologia APH 360°?",
+      a: "É a metodologia de ensino do Grupo EDASI. Nas aulas, a técnica é trabalhada junto com comunicação, trabalho em equipe, postura ética, cuidado com dados e inovação em saúde. Não é um curso à parte e não muda o foco do curso, que continua sendo o APH.",
     },
-  
     {
       q: "Qual é a duração e a frequência das aulas?",
-      a: "O curso tem duração de quatro meses, com aulas duas vezes por semana. Há turma da manhã e turma noturna.",
+      a: `O curso tem ${c.hours}, ao longo de ${c.duration}, com aulas ${c.frequency}. Há turma da manhã e turma noturna.`,
     },
-  
     {
       q: "O curso é só para quem é da área da saúde?",
       a: "Não. O Grupo EDASI recebe tanto profissionais da saúde quanto pessoas que estão começando na área.",
@@ -254,30 +182,45 @@ export const faq = {
     },
     {
       q: "Quais são as formas de pagamento?",
-      a: "Para matrículas até 31/12/2026: R$ 1.400 no boleto, em até 4x, ou R$ 1.200 no cartão de crédito (R$ 200 de desconto), em até 6x. A partir de 2027, o curso passa a custar R$ 1.850 no cartão, em até 10x, e R$ 2.100 no boleto, em até 5x.",
+      a: `Para matrículas até ${c.deadline}: ${c.boleto.value} no boleto, ${c.boleto.installments}, ou ${c.card.value} no cartão de crédito (${c.card.discount}), ${c.card.installments}. A partir de 2027, o curso passa a custar ${c.from2027.card.value} no cartão, ${c.from2027.card.installments}, e ${c.from2027.boleto.value} no boleto, ${c.from2027.boleto.installments}.`,
     },
-    
     {
       q: "As capacitações complementares estão incluídas no valor do APH?",
       a: "Não. Inteligência emocional, marketing pessoal, gestão financeira e empreendedorismo são citados como opções complementares oferecidas separadamente e de forma opcional. Consulte disponibilidade, valores e condições.",
     },
     {
       q: "Como faço a inscrição ou tiro dúvidas?",
-      a: "Clique em “Já quero realizar minha inscrição” para fazer a pré-matrícula no portal do Grupo EDASI. Para tirar dúvidas, fale com a equipe pelo WhatsApp.",
+      a: `Clique em “${ctaLabels.registration}” para fazer a pré-matrícula no portal do Grupo EDASI. Para tirar dúvidas, use o botão “${ctaLabels.whatsapp}”.`,
     },
   ],
 };
 
 export const finalCta = {
   eyebrow: "Curso APH · Grupo EDASI",
-  title: "Aprofunde a técnica.|*Amplie seu preparo em APH.*",
-  text: "Próximas turmas: xxxxx e abril de 2027. São quatro meses de Atendimento Pré-Hospitalar, com técnicas, protocolos, prática e uma visão 360° integrada. Comece a inscrição no portal ou converse com a equipe.",
+  title: `Turmas de manhã e à noite.|*Valor sem reajuste até ${c.deadlineShort}.*`,
+  text: `Próximas turmas: ${c.nextCohort} e ${c.followingCohort}. São ${c.hours} de APH presencial em ${c.duration}. Para matrículas até ${c.deadline}: ${c.boleto.value} no boleto ou ${c.card.value} no cartão.`,
 };
 
 export const footer = {
-  course: "Curso Atendimento Pré-Hospitalar · APH 2027",
+  course: "Curso de Atendimento Pré-Hospitalar · APH 2027",
   place: "São Bernardo do Campo · SP",
   disclaimer: "Sem promessa de habilitação, emprego ou certificação.",
+};
+
+/**
+ * Formulário curto de inscrição. Não há servidor: ao enviar, abre o WhatsApp oficial
+ * com os dados já preenchidos na mensagem (nada é armazenado pela página).
+ */
+export const leadForm = {
+  title: "Garanta sua vaga",
+  subtitleLabel: "Próxima turma:",
+  subtitleValue: c.nextCohort,
+  fields: { name: "Nome completo", email: "E-mail", phone: "(00) 00000-0000" },
+  consent: "Autorizo a equipe do Grupo EDASI a entrar em contato comigo sobre o curso.",
+  submit: "Enviar e continuar no WhatsApp",
+  note: `Matrícula até ${c.deadline}: ${c.boleto.value} no boleto ou ${c.card.value} no cartão.`,
+  message: (d: { name: string; email: string; phone: string }) =>
+    `Olá! Quero garantir minha vaga no curso APH 2027 do Grupo EDASI.\nNome: ${d.name}\nE-mail: ${d.email}\nWhatsApp: ${d.phone}`,
 };
 
 /** Outras formações — prioridades comerciais informadas pelo EDASI. */

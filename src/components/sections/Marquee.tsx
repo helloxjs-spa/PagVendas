@@ -1,12 +1,13 @@
+import { commercial as c } from "@/content/course";
 import { site } from "@/content/site";
 
 /** Frases da faixa — todas já presentes na página. */
 const phrases = [
   site.slogan.replace(/\.$/, ""),
-  "APH Presencial · 240 horas",
-  "30 aulas · 2 simulados",
+  `APH Presencial · ${c.hours}`,
+  `${c.lessons} aulas · ${c.simulations} simulados`,
   "Turmas de manhã e à noite",
-  "Matrícula até 31/12 sem reajuste",
+  `Matrícula até ${c.deadlineShort} sem reajuste`,
 ];
 
 function Track({ hidden = false }: { hidden?: boolean }) {

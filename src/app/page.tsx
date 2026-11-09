@@ -6,8 +6,6 @@ import { Footer } from "@/components/Footer";
 import { StickyActions } from "@/components/StickyActions";
 import { Hero } from "@/components/sections/Hero";
 import { Pillars } from "@/components/sections/Pillars";
-import { Method } from "@/components/sections/Method";
-import { Dimensions } from "@/components/sections/Dimensions";
 import { Marquee } from "@/components/sections/Marquee";
 import { Schedule } from "@/components/sections/Schedule";
 import { Program } from "@/components/sections/Program";
@@ -18,6 +16,7 @@ import { Offer } from "@/components/sections/Offer";
 import { Faq } from "@/components/sections/Faq";
 import { FinalBand } from "@/components/sections/FinalBand";
 import { Courses } from "@/components/sections/Courses";
+import { LeadForm } from "@/components/sections/LeadForm";
 
 export default function Page() {
   // "Veja por dentro" só aparece no menu se a seção de vídeos existir.
@@ -39,22 +38,20 @@ export default function Page() {
       <main id="conteudo">
         <Hero />
         <Pillars />
-        <Method />
-        <Dimensions />
+        <Offer />
+        <Program />
         <Marquee />
         <Schedule />
-        <Marquee />
-        <Program />
         <Videos />
-        <Gallery />
         <Voices />
-        <Offer />
         <Courses />
+        <LeadForm />
+        <Gallery />
         <Faq />
         <FinalBand />
       </main>
 
-      <Footer items={navItems} />
+      <Footer />
       <StickyActions />
     </>
   );

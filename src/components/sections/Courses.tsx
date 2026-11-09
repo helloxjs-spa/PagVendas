@@ -55,7 +55,7 @@ export function Courses() {
                       aria-label={`Quero saber mais sobre ${c.name} pelo WhatsApp`}
                     >
                       <WhatsAppGlyph />
-                      Quero saber mais
+                      Saber mais no WhatsApp
                     </a>
                   )}
                 </div>
