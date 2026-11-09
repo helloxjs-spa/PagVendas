@@ -17,8 +17,8 @@ export const commercial = {
   frequency: "2 vezes por semana",
   lessons: "30",
   simulations: "2",
-  /** Próximas turmas — "xxxxx" até o EDASI confirmar a data. */
-  nextCohort: "xxxxx",
+  /** Próximas turmas. */
+  nextCohort: "novembro/2026",
   followingCohort: "abril/2027",
   deadline: "31/12/2026",
   deadlineShort: "31/12",
@@ -79,7 +79,7 @@ export const schedule = {
   title: "Quatro meses.|*Dois encontros por semana.*",
   lead: "Você escolhe entre a turma da manhã e a turma noturna. Nas duas, são duas aulas por semana durante quatro meses.",
   cohorts: [
-    { label: "Próxima turma", month: "xxxxx", year: "" },
+    { label: "Próxima turma", month: "Novembro", year: "2026" },
     { label: "Turma seguinte", month: "Abril", year: "2027" },
   ],
   shiftsTitle: "Escolha o seu turno",
@@ -208,7 +208,7 @@ export const footer = {
 export const leadForm = {
   title: "Garanta sua vaga",
   subtitleLabel: "Próxima turma:",
-  subtitleValue: c.nextCohort,
+  subtitleValue: "Novembro, 2026",
   fields: { name: "Nome completo", email: "E-mail", phone: "(00) 00000-0000" },
   consent: "Autorizo a equipe do Grupo EDASI a entrar em contato comigo sobre o curso.",
   submit: "Enviar e continuar no WhatsApp",

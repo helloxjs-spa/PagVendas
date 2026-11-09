@@ -13,7 +13,7 @@ export function Faq() {
     { icon: Clock, label: "Duração", value: "4 meses" },
     { icon: Repeat, label: "Frequência", value: "2 vezes por semana" },
     { icon: Sunrise, label: "Turmas", value: `${schedule.morning.eyebrow} e ${schedule.night.eyebrow.toLowerCase()}` },
-    { icon: CalendarDays, label: "Próximas turmas", value: `${schedule.cohorts[0].month} e ${schedule.cohorts[1].month.toLowerCase()}/${schedule.cohorts[1].year}` },
+    { icon: CalendarDays, label: "Próximas turmas", value: `${schedule.cohorts[0].month}/${schedule.cohorts[0].year} e ${schedule.cohorts[1].month.toLowerCase()}/${schedule.cohorts[1].year}` },
     { icon: MapPin, label: "Local", value: `${site.address.city} · ${site.address.state}` },
     { icon: GraduationCap, label: "Carga horária", value: "240 horas" },
     { icon: ListChecks, label: "Aulas", value: "30" },

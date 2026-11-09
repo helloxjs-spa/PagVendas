@@ -11,7 +11,8 @@ import { Schedule } from "@/components/sections/Schedule";
 import { Program } from "@/components/sections/Program";
 import { Videos } from "@/components/sections/Videos";
 import { Gallery } from "@/components/sections/Gallery";
-import { Voices } from "@/components/sections/Voices";
+// Depoimentos desativados até chegarem os vídeos dos alunos. Para reativar, descomente aqui e na página.
+// import { Voices } from "@/components/sections/Voices";
 import { Offer } from "@/components/sections/Offer";
 import { Faq } from "@/components/sections/Faq";
 import { LeadForm } from "@/components/sections/LeadForm";
@@ -41,9 +42,9 @@ export default function Page() {
         <Marquee />
         <Schedule />
         <Marquee />
-        <Voices />
-        <Videos />
+        {/* <Voices /> */}
         <Gallery />
+        <Videos />
         <LeadForm />
         <Faq />
       </main>

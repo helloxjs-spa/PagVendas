@@ -11,7 +11,7 @@ export function Voices() {
   if (!hasReal && !site.reviewMode) return null;
 
   return (
-    <section aria-labelledby="depoimentos-title" data-tone="yellow" className="bg-signal py-16 sm:py-20">
+    <section aria-labelledby="depoimentos-title" className="bg-white py-16 sm:py-20">
       <div className="wrap">
         <SectionHead
           id="depoimentos-title"

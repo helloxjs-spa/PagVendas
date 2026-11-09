@@ -44,9 +44,9 @@ export function LeadForm() {
   }
 
   return (
-    <section id="inscricao" aria-labelledby="inscricao-title" data-tone="yellow" className="bg-signal py-16 sm:py-20">
+    <section id="inscricao" aria-labelledby="inscricao-title" className="bg-white py-16 sm:py-20">
       <div className="wrap flex justify-center">
-        <div className="relative w-full max-w-[34rem] rounded-[26px] bg-white p-6 shadow-[0_30px_60px_rgba(8,27,52,0.22)] sm:p-9" data-tone="light">
+        <div className="relative w-full max-w-[34rem] rounded-[26px] bg-white p-6 shadow-[0_30px_60px_rgba(8,27,52,0.16)] ring-1 ring-line sm:p-9" data-tone="light">
           <Seal className="absolute -top-8 -right-3 sm:-right-7" />
 
           <h2 id="inscricao-title" className="mt-10 text-[clamp(1.8rem,1.4rem+1.4vw,2.3rem)] sm:mt-0 sm:pr-16 leading-tight font-extrabold tracking-[-0.02em] text-navy">
