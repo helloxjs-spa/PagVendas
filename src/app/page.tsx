@@ -1,4 +1,4 @@
-import { nav } from "@/content/course";
+import { enrollmentMarquee, nav } from "@/content/course";
 import { filledVideos } from "@/content/media";
 import { site } from "@/content/site";
 import { Header } from "@/components/Header";
@@ -45,7 +45,9 @@ export default function Page() {
         {/* <Voices /> */}
         <Gallery />
         <Videos />
+        <Marquee tone="red" phrases={enrollmentMarquee} />
         <LeadForm />
+        <Marquee tone="red" phrases={enrollmentMarquee} />
         <Faq />
       </main>
 

@@ -216,3 +216,12 @@ export const leadForm = {
   message: (d: { name: string; email: string; phone: string }) =>
     `Olá! Quero garantir minha vaga no curso APH 2027 do Grupo EDASI.\nNome: ${d.name}\nE-mail: ${d.email}\nWhatsApp: ${d.phone}`,
 };
+
+/** Frases da esteira vermelha, acima e abaixo do formulário de inscrição. */
+export const enrollmentMarquee = [
+  "Garanta sua vaga",
+  `Próxima turma: ${c.nextCohort}`,
+  `Valor atual garantido até ${c.deadlineShort}`,
+  `${c.card.value} no cartão · ${c.boleto.value} no boleto`,
+  "Inscrição rápida pelo WhatsApp",
+];
