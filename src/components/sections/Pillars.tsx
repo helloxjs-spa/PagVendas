@@ -53,7 +53,7 @@ export function Pillars() {
       id="programa"
       aria-labelledby="programa-title"
       data-tone={tone.tone}
-      className={`flow-root pb-16 transition-colors duration-500 ease-[var(--ease-out-quint)] sm:pb-20 ${tone.bg} ${tone.text}`}
+      className={`flow-root pb-10 transition-colors duration-500 ease-[var(--ease-out-quint)] sm:pb-12 ${tone.bg} ${tone.text}`}
     >
       <HeroLedger />
       <div className="wrap">

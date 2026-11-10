@@ -212,6 +212,19 @@
   .marquee:hover {
     animation-play-state: paused;
   }
+  /* Esteira da direita para a esquerda (fotos da equipe) */
+  .marquee-rtl {
+    animation-name: marquee-rtl;
+  }
+}
+
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes marquee-ltr {

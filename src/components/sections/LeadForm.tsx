@@ -1,102 +1,79 @@
 "use client";
 
-import { useState } from "react";
-import { leadForm } from "@/content/course";
-import { pendingMessage, whatsappHref } from "@/content/site";
+import { ArrowUpRight, CalendarDays, ClipboardCheck, ShieldCheck } from "lucide-react";
+import { ctaLabels, leadForm } from "@/content/course";
+import { pendingMessage, registrationHref, whatsappHref } from "@/content/site";
+import { Headline } from "../ui/Headline";
 import { showToast } from "../ui/Toaster";
-import { Seal } from "../ui/Seal";
 import { WhatsAppGlyph } from "../ui/WhatsAppGlyph";
 
-/** (11) 98765-4321 a partir dos dígitos digitados. */
-function maskPhone(value: string) {
-  const d = value.replace(/\D/g, "").slice(0, 11);
-  if (d.length <= 2) return d.length ? `(${d}` : "";
-  if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
-  if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
-  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+type TileProps = {
+  href: string | null;
+  className: string;
+  children: React.ReactNode;
+};
+
+/** Cartão inteiro clicável; sem destino configurado, avisa em vez de inventar link. */
+function Tile({ href, className, children }: TileProps) {
+  const base = `group relative flex h-full flex-col rounded-[22px] p-6 text-left transition-[transform,box-shadow] duration-300 ease-[var(--ease-out-quint)] hover:-translate-y-1 sm:p-7 ${className}`;
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={base}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <button type="button" className={`${base} cursor-pointer`} onClick={() => showToast(pendingMessage)}>
+      {children}
+    </button>
+  );
 }
 
-const input =
-  "h-14 w-full rounded-2xl border border-line bg-white px-5 text-[1rem] text-ink placeholder:text-ink/45 transition-colors outline-none focus:border-blue focus:ring-4 focus:ring-blue/10";
-
 /**
- * Formulário curto de inscrição. Sem servidor: ao enviar, abre o WhatsApp oficial
- * com nome, e-mail e telefone já escritos na mensagem.
+ * Bloco de inscrição: faixa amarela com dois caminhos diretos —
+ * pré-matrícula no portal ou conversa com um consultor no WhatsApp.
  */
 export function LeadForm() {
-  const [phone, setPhone] = useState("");
-
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const href = whatsappHref(
-      leadForm.message({
-        name: String(data.get("name") ?? "").trim(),
-        email: String(data.get("email") ?? "").trim(),
-        phone,
-      }),
-    );
-    if (!href) {
-      showToast(pendingMessage);
-      return;
-    }
-    window.open(href, "_blank", "noopener,noreferrer");
-  }
-
   return (
-    <section id="inscricao" aria-labelledby="inscricao-title" className="bg-white py-16 sm:py-20">
-      <div className="wrap flex justify-center">
-        <div className="relative w-full max-w-[34rem] rounded-[26px] bg-white p-6 shadow-[0_30px_60px_rgba(8,27,52,0.16)] ring-1 ring-line sm:p-9" data-tone="light">
-          <Seal className="absolute -top-8 -right-3 sm:-right-7" />
+    <section id="inscricao" aria-labelledby="inscricao-title" data-tone="yellow" className="bg-signal py-16 text-navy sm:py-20">
+      <div className="wrap grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+        <div>
+          <Headline id="inscricao-title" text={leadForm.title} className="section-title" />
+          <p className="mt-4 max-w-md text-[1.02rem] text-navy/80">{leadForm.text}</p>
 
-          <h2 id="inscricao-title" className="mt-10 text-[clamp(1.8rem,1.4rem+1.4vw,2.3rem)] sm:mt-0 sm:pr-16 leading-tight font-extrabold tracking-[-0.02em] text-navy">
-            {leadForm.title}
-          </h2>
-          <p className="mt-2 text-[0.98rem] text-ink/65">
-            {leadForm.subtitleLabel} <strong className="font-bold text-navy">{leadForm.subtitleValue}</strong>
-          </p>
+          <ul className="mt-6 flex flex-wrap gap-2.5 text-[0.88rem] font-semibold">
+            <li className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2">
+              <CalendarDays aria-hidden className="size-4" /> {leadForm.cohort}
+            </li>
+            <li className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2">
+              <ShieldCheck aria-hidden className="size-4 text-alert" /> {leadForm.priceLock}
+            </li>
+          </ul>
+        </div>
 
-          <form onSubmit={onSubmit} className="mt-6 grid gap-3.5">
-            <label className="block">
-              <span className="sr-only">{leadForm.fields.name}</span>
-              <input name="name" type="text" required autoComplete="name" minLength={3} placeholder={leadForm.fields.name} className={input} />
-            </label>
-            <label className="block">
-              <span className="sr-only">{leadForm.fields.email}</span>
-              <input name="email" type="email" required autoComplete="email" inputMode="email" placeholder={leadForm.fields.email} className={input} />
-            </label>
-            <label className="relative block">
-              <span className="sr-only">WhatsApp com DDD</span>
-              <span aria-hidden className="pointer-events-none absolute top-1/2 left-5 -translate-y-1/2 text-[0.95rem] font-semibold text-ink/55">
-                +55
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Tile href={registrationHref()} className="bg-navy text-white shadow-[0_24px_44px_rgba(8,27,52,0.3)] hover:shadow-[0_30px_54px_rgba(8,27,52,0.38)]">
+            <span className="flex items-start justify-between">
+              <span className="flex size-13 items-center justify-center rounded-2xl bg-signal text-navy">
+                <ClipboardCheck aria-hidden className="size-6" />
               </span>
-              <input
-                name="phone"
-                type="tel"
-                required
-                autoComplete="tel-national"
-                inputMode="tel"
-                pattern="\(\d{2}\) \d{4,5}-\d{4}"
-                title="Informe o WhatsApp com DDD"
-                placeholder={leadForm.fields.phone}
-                value={phone}
-                onChange={(e) => setPhone(maskPhone(e.target.value))}
-                className={`${input} pl-15`}
-              />
-            </label>
+              <ArrowUpRight aria-hidden className="size-6 text-sky transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
+            <span className="mt-8 text-[1.3rem] leading-tight font-extrabold">{ctaLabels.quickRegistration}</span>
+            <span className="mt-2 text-[0.92rem] leading-snug text-white/70">{leadForm.registrationText}</span>
+          </Tile>
 
-            <label className="mt-1 flex cursor-pointer items-start gap-3 text-[0.88rem] leading-snug text-ink/65">
-              <input name="consent" type="checkbox" required className="mt-0.5 size-5 shrink-0 cursor-pointer accent-navy" />
-              <span>{leadForm.consent}</span>
-            </label>
-
-            <button type="submit" className="btn btn-whatsapp mt-2 w-full cursor-pointer">
-              <WhatsAppGlyph />
-              {leadForm.submit}
-            </button>
-          </form>
-
-          <p className="mt-4 text-center text-[0.82rem] text-ink/55">{leadForm.note}</p>
+          <Tile href={whatsappHref()} className="bg-white text-navy shadow-[0_24px_44px_rgba(8,27,52,0.14)] hover:shadow-[0_30px_54px_rgba(8,27,52,0.2)]">
+            <span className="flex items-start justify-between">
+              <span className="flex size-13 items-center justify-center rounded-2xl bg-whatsapp text-white">
+                <WhatsAppGlyph className="size-6" />
+              </span>
+              <ArrowUpRight aria-hidden className="size-6 text-navy/40 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
+            <span className="mt-8 text-[1.3rem] leading-tight font-extrabold">{ctaLabels.consultant}</span>
+            <span className="mt-2 text-[0.92rem] leading-snug text-navy/65">{leadForm.consultantText}</span>
+          </Tile>
         </div>
       </div>
     </section>

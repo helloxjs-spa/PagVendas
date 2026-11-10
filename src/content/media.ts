@@ -95,6 +95,41 @@ export const closingPhoto: PhotoSlot = {
   },
 };
 
+/**
+ * Seção "Com quem você vai aprender" — fotos REAIS dos instrutores, em esteira infinita.
+ * Para cada profissional: arquivo em /public/images/equipe/ (vertical, rosto visível,
+ * ex.: nome-sobrenome.jpeg) + nome e, se quiser, a função (ex.: "Socorrista do SAMU").
+ *   { code: "joao-silva", label: "João Silva", note: "Socorrista do SAMU",
+ *     photo: { src: "/images/equipe/joao-silva.jpeg", alt: "João Silva, instrutor do Grupo EDASI", width: 900, height: 1200 } },
+ * `label` = nome · `note` = função (opcional).
+ */
+const member = (code: string, name: string, width: number, height: number, focus: string, role = ""): PhotoSlot => ({
+  code,
+  label: name,
+  note: role,
+  photo: { src: `/images/equipe/${code}.webp`, alt: `${name}, instrutor(a) do Grupo EDASI, de uniforme de socorrista`, width, height, focus },
+});
+
+/** Originais em assets-src/equipe/ → `npm run images` gera os .webp em public/images/equipe/. */
+export const teamMembers: PhotoSlot[] = [
+  member("aline", "Aline", 640, 960, "50% 25%"),
+  member("malaquias", "Rafael Malaquias", 640, 640, "53% 50%"),
+  member("ana-paula", "Ana Paula", 505, 759, "50% 15%"),
+  member("a-lima", "A. Lima", 640, 853, "50% 40%"),
+  member("andrea-baldo", "Andrea Baldo", 640, 960, "50% 35%"),
+  member("glaiton-souza", "Glaiton Souza", 640, 834, "50% 30%"),
+];
+
+/** No modo revisão, enquanto não há fotos, a esteira mostra estes espaços reservados. */
+const teamPlaceholders: PhotoSlot[] = Array.from({ length: 6 }, (_, i) => ({
+  code: `vaga-${i + 1}`,
+  label: "Nome do instrutor",
+  note: "Função",
+  photo: null,
+}));
+
+export const teamSlots: PhotoSlot[] = teamMembers.length > 0 ? teamMembers : teamPlaceholders;
+
 export const videos: VideoSlot[] = [
   { title: "Técnicas e protocolos de APH", note: "", video: null },
   { title: "Aulas práticas e simulados", note: "", video: null },
@@ -121,9 +156,9 @@ export const galleryPhotos: PhotoSlot[] = [
   },
   {
     code: "04",
-    label: "Treino de RCP",
+    label: "Salvamento aquático",
     note: "",
-    photo: { src: "/images/aquatico.jpeg", alt: "Aluna faz compressões torácicas em manequim enquanto colega prepara o ressuscitador manual", width: 1280, height: 854, focus: "38% 50%" },
+    photo: { src: "/images/salvamento-aquatico.jpeg", alt: "Alunos dentro da piscina imobilizam uma colega em prancha rígida com colar e bloqueador de cabeça durante o treino de salvamento aquático", width: 1600, height: 1200, focus: "50% 55%" },
   },
   {
     code: "05",

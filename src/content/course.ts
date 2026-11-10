@@ -37,6 +37,9 @@ export const ctaLabels = {
   whatsapp: "Tirar dúvidas no WhatsApp",
   /** Versão curta usada apenas em espaços reduzidos (barra fixa no celular). */
   registrationShort: "Fazer inscrição",
+  /** Botões do bloco de inscrição. */
+  quickRegistration: "Fazer inscrição rápida",
+  consultant: "Falar com um consultor",
 };
 
 export const nav = [
@@ -125,6 +128,12 @@ export const gallery = {
   lead: "Simulados, ambulância, piscina e formatura: o curso acontece na prática.",
 };
 
+/** Seção "Com quem você vai aprender" — o time de instrutores. */
+export const team = {
+  title: "Com quem você|vai *aprender.*",
+  lead: "O que o Grupo EDASI tem de mais valioso é o seu time. A maioria dos nossos instrutores atua no SAMU e leva para a sala de aula a rotina real do atendimento pré-hospitalar.",
+};
+
 export const testimonials = {
   eyebrow: "Depoimentos de alunos",
   title: "Quem viveu o curso|pode contar a sua *experiência.*",
@@ -160,10 +169,6 @@ export const faq = {
   title: "Clareza antes|de *decidir.*",
   items: [
     {
-      q: "O foco do curso é Atendimento Pré-Hospitalar?",
-      a: `Sim. O curso é dedicado a técnicas e protocolos de urgência e emergência, com ${c.lessons} aulas e ${c.simulations} simulados de APH.`,
-    },
-    {
       q: "O que é a metodologia APH 360°?",
       a: "É a metodologia de ensino do Grupo EDASI. Nas aulas, a técnica é trabalhada junto com comunicação, trabalho em equipe, postura ética, cuidado com dados e inovação em saúde. Não é um curso à parte e não muda o foco do curso, que continua sendo o APH.",
     },
@@ -175,7 +180,18 @@ export const faq = {
       q: "O curso é só para quem é da área da saúde?",
       a: "Não. O Grupo EDASI recebe tanto profissionais da saúde quanto pessoas que estão começando na área.",
     },
-  
+    {
+      q: "Quem tem Ensino Médio pode fazer o curso?",
+      a: "Sim! Quem possui Ensino Médio pode realizar o curso de APH, mesmo sem formação anterior na área da saúde. O curso oferece conhecimentos teóricos e práticos em atendimento pré-hospitalar.",
+    },
+    {
+      q: "O curso de APH é reconhecido pelo MEC?",
+      a: "O curso de APH do Grupo EDASI é um curso livre de capacitação profissional e, por isso, não depende de reconhecimento do MEC. Sua formação utiliza como referência a Portaria GM/MS nº 2.048/2002.",
+    },
+    {
+      q: "O curso oferece carteirinha de identificação?",
+      a: "Sim! Além do certificado de conclusão, o aluno recebe uma carteirinha de identificação do curso de APH do Grupo EDASI, conforme os critérios de conclusão. A carteirinha não equivale a registro profissional.",
+    },
     {
       q: "Moro longe ou não consigo ir duas vezes por semana. Existe outra opção?",
       a: "Sim. O APH Híbrido (150h) combina atividades online e presenciais, com maior flexibilidade, e a próxima turma está prevista para a primeira semana de dezembro. Também há o APH EAD, para alunos de outras regiões do Brasil.",
@@ -183,10 +199,6 @@ export const faq = {
     {
       q: "Quais são as formas de pagamento?",
       a: `Para matrículas até ${c.deadline}: ${c.boleto.value} no boleto, ${c.boleto.installments}, ou ${c.card.value} no cartão de crédito (${c.card.discount}), ${c.card.installments}. A partir de 2027, o curso passa a custar ${c.from2027.card.value} no cartão, ${c.from2027.card.installments}, e ${c.from2027.boleto.value} no boleto, ${c.from2027.boleto.installments}.`,
-    },
-    {
-      q: "As capacitações complementares estão incluídas no valor do APH?",
-      a: "Não. Inteligência emocional, marketing pessoal, gestão financeira e empreendedorismo são citados como opções complementares oferecidas separadamente e de forma opcional. Consulte disponibilidade, valores e condições.",
     },
     {
       q: "Como faço a inscrição ou tiro dúvidas?",
@@ -201,27 +213,12 @@ export const footer = {
   disclaimer: "Sem promessa de habilitação, emprego ou certificação.",
 };
 
-/**
- * Formulário curto de inscrição. Não há servidor: ao enviar, abre o WhatsApp oficial
- * com os dados já preenchidos na mensagem (nada é armazenado pela página).
- */
+/** Bloco de inscrição: portal de pré-matrícula e consultor no WhatsApp. */
 export const leadForm = {
-  title: "Garanta sua vaga",
-  subtitleLabel: "Próxima turma:",
-  subtitleValue: "Novembro, 2026",
-  fields: { name: "Nome completo", email: "E-mail", phone: "(00) 00000-0000" },
-  consent: "Autorizo a equipe do Grupo EDASI a entrar em contato comigo sobre o curso.",
-  submit: "Enviar e continuar no WhatsApp",
-  note: `Matrícula até ${c.deadline}: ${c.boleto.value} no boleto ou ${c.card.value} no cartão.`,
-  message: (d: { name: string; email: string; phone: string }) =>
-    `Olá! Quero garantir minha vaga no curso APH 2027 do Grupo EDASI.\nNome: ${d.name}\nE-mail: ${d.email}\nWhatsApp: ${d.phone}`,
+  title: "Garanta sua *vaga*",
+  text: "Escolha o caminho mais fácil para você: faça a pré-matrícula agora ou converse com a nossa equipe antes de decidir.",
+  cohort: `Próxima turma: ${c.nextCohort}`,
+  priceLock: `Valor atual até ${c.deadlineShort}`,
+  registrationText: "Pré-matrícula online no portal do Grupo EDASI, em poucos minutos.",
+  consultantText: "Tire dúvidas sobre turmas, horários e formas de pagamento.",
 };
-
-/** Frases da esteira vermelha, acima e abaixo do formulário de inscrição. */
-export const enrollmentMarquee = [
-  "Garanta sua vaga",
-  `Próxima turma: ${c.nextCohort}`,
-  `Valor atual garantido até ${c.deadlineShort}`,
-  `${c.card.value} no cartão · ${c.boleto.value} no boleto`,
-  "Inscrição rápida pelo WhatsApp",
-];

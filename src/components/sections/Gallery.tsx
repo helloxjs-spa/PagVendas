@@ -13,7 +13,7 @@ export function Gallery() {
   if (!site.reviewMode && items.length < 2) return null;
 
   return (
-    <section id="vivencias" aria-labelledby="galeria-title" className="bg-white py-16 sm:py-20">
+    <section id="vivencias" aria-labelledby="galeria-title" className="border-t border-line bg-white pt-9 pb-16 sm:pt-11 sm:pb-20">
       <div className="wrap">
         <SectionHead id="galeria-title" title={gallery.title} lead={gallery.lead} />
         <ul className="mt-10 grid grid-cols-2 gap-x-3 gap-y-5 sm:gap-x-5 lg:grid-cols-4" aria-label="Fotos do curso">

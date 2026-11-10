@@ -1,4 +1,4 @@
-import { enrollmentMarquee, nav } from "@/content/course";
+import { nav } from "@/content/course";
 import { filledVideos } from "@/content/media";
 import { site } from "@/content/site";
 import { Header } from "@/components/Header";
@@ -11,6 +11,7 @@ import { Schedule } from "@/components/sections/Schedule";
 import { Program } from "@/components/sections/Program";
 import { Videos } from "@/components/sections/Videos";
 import { Gallery } from "@/components/sections/Gallery";
+import { Team } from "@/components/sections/Team";
 // Depoimentos desativados até chegarem os vídeos dos alunos. Para reativar, descomente aqui e na página.
 // import { Voices } from "@/components/sections/Voices";
 import { Offer } from "@/components/sections/Offer";
@@ -37,17 +38,16 @@ export default function Page() {
       <main id="conteudo">
         <Hero />
         <Pillars />
+        <Gallery />
         <Offer />
         <Program />
         <Marquee />
         <Schedule />
         <Marquee />
         {/* <Voices /> */}
-        <Gallery />
+        <Team />
         <Videos />
-        <Marquee tone="red" phrases={enrollmentMarquee} />
         <LeadForm />
-        <Marquee tone="red" phrases={enrollmentMarquee} />
         <Faq />
       </main>
 
