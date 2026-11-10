@@ -41,10 +41,10 @@ export function Header({ items }: { items: NavItem[] }) {
       >
         <a href="#inicio" className="shrink-0" aria-label="Grupo EDASI — voltar ao início" onClick={() => setOpen(false)}>
           <Image
-            src="/images/logo-grupo-edasi.png"
-            alt="Grupo EDASI — Educação, Segurança e Inovação em Saúde"
-            width={1003}
-            height={472}
+            src="/images/logo-edasi-horizontal.png"
+            alt="Grupo EDASI"
+            width={1200}
+            height={562}
             priority
             className="h-9 w-auto lg:h-10"
           />
