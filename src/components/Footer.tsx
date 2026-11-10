@@ -54,7 +54,7 @@ export function Footer() {
       <div className="border-t border-white/10 py-4 text-[0.78rem] text-white/60">
         <div className="wrap flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <span>
-            © {year} {site.name}. {footer.disclaimer}
+            © {year} {site.name}.
           </span>
           <a href="#inicio" className="inline-flex items-center gap-1 font-semibold text-white/85 hover:text-white">
             Voltar ao topo <ArrowUp aria-hidden className="size-3.5" />

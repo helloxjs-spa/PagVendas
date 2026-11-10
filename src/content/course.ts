@@ -46,6 +46,7 @@ export const nav = [
   { href: "#programa", label: "Metodologia 360°" },
   { href: "#conteudos", label: "O que você aprende" },
   { href: "#turmas", label: "Turmas e dias" },
+  { href: "#equipe", label: "Equipe" },
   { href: "#conteudos-visuais", label: "Veja por dentro", requires: "videos" as const },
   { href: "#investimento", label: "Investimento" },
 ];
@@ -210,7 +211,6 @@ export const faq = {
 export const footer = {
   course: "Curso de Atendimento Pré-Hospitalar · APH 2027",
   place: "São Bernardo do Campo · SP",
-  disclaimer: "Sem promessa de habilitação, emprego ou certificação.",
 };
 
 /** Bloco de inscrição: portal de pré-matrícula e consultor no WhatsApp. */

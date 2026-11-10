@@ -55,7 +55,7 @@ export function Header({ items }: { items: NavItem[] }) {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-xl px-3.5 py-2 text-[0.88rem] font-medium text-ink/70 transition-colors hover:bg-mist hover:text-ink"
+              className="rounded-xl px-3 py-2 text-[0.88rem] xl:px-3.5 font-medium text-ink/70 transition-colors hover:bg-mist hover:text-ink"
             >
               {item.label}
             </a>
