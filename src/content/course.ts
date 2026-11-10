@@ -49,7 +49,7 @@ export const nav = [
 
 export const hero = {
   eyebrow: "Formação em Atendimento Pré-Hospitalar · Grupo EDASI",
-  title: "Na emergência, não basta|conhecer a técnica.|*É preciso saber aplicá-la.*",
+  title: "Você está escolhendo um curso de APH|pela carga horária ou pelo que|*realmente vai aprender?*",
   intro:
     "Uma formação que conecta conhecimento técnico, prática realística, comunicação e desenvolvimento profissional por meio da metodologia APH 360° do Grupo EDASI.",
   factsStrong: `${c.hours.replace("h", " horas")} · Aulas presenciais · Simulados realísticos`,
