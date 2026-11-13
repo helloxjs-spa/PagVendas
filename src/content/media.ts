@@ -9,7 +9,7 @@
  *   VÍDEOS → `video: { kind: "youtube", id: "ID_DO_VIDEO" }`
  *            `video: { kind: "file", src: "/videos/aula.mp4", poster: "/images/capa.jpg" }`
  *            `video: { kind: "embed", src: "https://www.instagram.com/reel/XXXX/embed" }`
- *   DEPOIMENTOS → adicione objetos ao array `testimonials` (somente com autorização).
+ *   DEPOIMENTOS → adicione objetos ao array `studentVideos` (somente com autorização).
  *
  * Com `reviewMode: false` (src/content/site.ts), espaços vazios deixam de aparecer.
  */
@@ -43,13 +43,21 @@ export type VideoSlot = {
   video: Video | null;
 };
 
-export type Testimonial = {
-  quote?: string;
+/**
+ * Depoimento em vídeo vertical de aluno, hospedado no próprio site.
+ * Original em assets-src/videos/<nome>.mp4 → `npm run videos` gera public/videos/<nome>.mp4 e .jpg (capa).
+ */
+export type StudentVideo = {
   name: string;
-  /** Turma, função ou cidade — apenas se informado pelo aluno. */
-  detail?: string;
-  photo?: Photo;
-  video?: Video;
+  quote: string;
+  /** Vídeo comprimido, ex.: "/videos/rosana.mp4". */
+  src: string;
+  /** Capa (quadro do vídeo), ex.: "/videos/rosana.jpg". */
+  poster: string;
+  /** Linha abaixo do nome. Padrão: "Aluna EDASI". */
+  role?: string;
+  /** Enquadramento vertical no card: 0 = topo do vídeo, 1 = base. Padrão 0.15. */
+  focus?: number;
 };
 
 /**
@@ -168,12 +176,31 @@ export const galleryPhotos: PhotoSlot[] = [
   },
 ];
 
-export const testimonialSlots = [
-  { code: "Vídeo", note: "Depoimento em vídeo de aluno" },
-  { code: "Relato", note: "Relato de aluno" },
+/**
+ * Depoimentos em vídeo (verticais). Exemplo:
+ *   { name: "Maria Souza", quote: "Frase de destaque do depoimento.", youtube: "https://youtu.be/XXXXXXXXXXX" },
+ * Sem itens, a seção some na versão pública (no modo revisão mostra 3 espaços reservados).
+ */
+export const studentVideos: StudentVideo[] = [
+  {
+    name: "Rosana",
+    quote: "Foi mais do que imaginava. Hoje eu me sinto segura… é mais que um certificado.",
+    src: "/videos/rosana.mp4",
+    poster: "/videos/rosana.jpg",
+  },
+  {
+    name: "Esmeralda",
+    quote: "Vai ser o primeiro certificado que eu vou ter.",
+    src: "/videos/esmeralda.mp4",
+    poster: "/videos/esmeralda.jpg",
+  },
+  {
+    name: "Silvana",
+    quote: "A experiência é inexplicável.",
+    src: "/videos/silvana.mp4",
+    poster: "/videos/silvana.jpg",
+  },
 ];
-
-export const testimonialsList: Testimonial[] = [];
 
 /* Helpers ------------------------------------------------------------- */
 

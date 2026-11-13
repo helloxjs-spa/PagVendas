@@ -8,7 +8,8 @@
     "preview": "npx --yes serve@14 out",
     "images": "node scripts/optimize-images.mjs",
     "deploy": "npm run build && npx --yes wrangler@4 pages deploy out --project-name=edasi-aph",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "videos": "node scripts/optimize-videos.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.70.0",

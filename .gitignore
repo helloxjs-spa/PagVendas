@@ -5,3 +5,6 @@ next-env.d.ts
 *.tsbuildinfo
 .env*.local
 .wrangler
+
+# Originais dos depoimentos (pesados); as versões comprimidas ficam em public/videos/
+assets-src/videos/

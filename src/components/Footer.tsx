@@ -14,10 +14,8 @@ export function Footer() {
     <footer data-tone="dark" className="bg-navy text-white">
       <div className="wrap grid gap-7 py-9 text-[0.9rem] md:grid-cols-[1fr_1.4fr] md:items-center md:gap-10">
         <div className="flex items-center gap-4">
-          <span className="inline-block shrink-0 rounded-xl bg-white px-3.5 py-2">
-            {/* Logo sobre fundo branco (a marca é azul-marinho) */}
-            <Image src="/images/logo-edasi-horizontal.png" alt="Grupo EDASI" width={1200} height={562} className="h-9 w-auto" />
-          </span>
+          {/* Logo branca: o fundo preto do JPG some sobre o azul-marinho via mix-blend-lighten */}
+          <Image src="/images/logo-branca.jpg" alt="Grupo EDASI" width={864} height={415} className="h-12 w-auto shrink-0 mix-blend-lighten" />
           <div className="leading-snug">
             <p className="text-white/80">{footer.course}</p>
             <p className="mt-0.5 font-semibold text-sky">{site.slogan}</p>
